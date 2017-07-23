@@ -1347,10 +1347,14 @@ ol.toc {
 }
 @font-face {
   font-family: UKIJ Ekran;
-  src: url("/fonts/ukij-ekran.ttf");
+  src: url("css//fonts/ukij-ekran.ttf");
 }
 .article.rtl .article-title,
-.article.rtl .article-entry p {
+.article.rtl .article-entry p,
+.article.rtl h1,
+.article.rtl h2,
+.article.rtl h3,
+.article.rtl h4 {
   direction: rtl;
   font-size: 16px;
   font-family: UKIJ Ekran;
