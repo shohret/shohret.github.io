@@ -1345,9 +1345,15 @@ ol.toc {
   -ms-transition: color 0.3s ease-out;
   transition: color 0.3s ease-out;
 }
+@font-face {
+  font-family: UKIJ Ekran;
+  src: url("/fonts/ukij-ekran.ttf");
+}
 .article.rtl .article-title,
 .article.rtl .article-entry p {
   direction: rtl;
+  font-size: 16px;
+  font-family: UKIJ Ekran;
 }
 .article.rtl .article-meta > div {
   float: right;
