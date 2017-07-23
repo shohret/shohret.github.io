@@ -1356,8 +1356,10 @@ ol.toc {
 .article.rtl h3,
 .article.rtl h4 {
   direction: rtl;
-  font-size: 16px;
   font-family: UKIJ Ekran;
+}
+.article.rtl .article-entry p {
+  font-size: 16px;
 }
 .article.rtl .article-meta > div {
   float: right;
