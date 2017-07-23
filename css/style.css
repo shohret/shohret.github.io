@@ -1354,7 +1354,10 @@ ol.toc {
 .article.rtl h1,
 .article.rtl h2,
 .article.rtl h3,
-.article.rtl h4 {
+.article.rtl h4,
+.article.rtl ol,
+.article.rtl ul,
+.article.rtl li {
   direction: rtl;
   font-family: UKIJ Ekran;
 }
