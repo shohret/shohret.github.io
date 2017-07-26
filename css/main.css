@@ -1097,20 +1097,25 @@ pre .javascript .function {
   }
 }
 .post-body.rtl p,
-.post-body h1,
-.post-body h2,
-.post-body h3,
-.post-body h4,
-.post-body h5,
-.post-body h6,
-.post-body li,
-.post-body ul,
-.post-body ol {
+.post-body .rtl a,
+.post-body .rtl h1,
+.post-body .rtl h2,
+.post-body .rtl h3,
+.post-body .rtl h4,
+.post-body .rtl h5,
+.post-body .rtl h6,
+.post-body .rtl li,
+.post-body .rtl ul,
+.post-body .rtl ol {
   direction: rtl;
   font-family: UKIJ Ekran;
 }
 .post-body.rtl p {
   font-size: 16px;
+}
+.post-title.rtl h1 {
+  direction: rtl;
+  font-family: UKIJ Ekran;
 }
 .post-body .fancybox img {
   display: block !important;
@@ -1694,7 +1699,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b09c4e;
+  background: #3dafff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2859,5 +2864,5 @@ pre .javascript .function {
 }
 @font-face {
   font-family: UKIJ Ekran;
-  src: url("fonts/ukij-ekran.ttf");
+  src: url("/fonts/ukij-ekran.ttf");
 }
