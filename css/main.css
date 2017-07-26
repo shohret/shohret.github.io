@@ -932,7 +932,7 @@ pre .javascript .function {
   right: 30px;
   z-index: 1050;
   padding: 0 6px;
-  width: 24px;
+  width: initial;
   background: #222;
   font-size: 12px;
   opacity: 0.6;
@@ -1095,28 +1095,6 @@ pre .javascript .function {
   .post-body {
     word-break: break-word;
   }
-}
-.post-body.rtl p,
-.post-body .rtl a,
-.post-body .rtl h1,
-.post-body .rtl h2,
-.post-body .rtl h3,
-.post-body .rtl h4,
-.post-body .rtl h5,
-.post-body .rtl h6,
-.post-body .rtl li,
-.post-body .rtl ul,
-.post-body .rtl ol {
-  direction: rtl;
-  font-family: UKIJ Ekran;
-}
-.post-body.rtl p {
-  font-size: 16px;
-}
-.post-title.rtl a,
-.post-title h1 {
-  direction: rtl;
-  font-family: UKIJ Ekran;
 }
 .post-body .fancybox img {
   display: block !important;
@@ -1543,6 +1521,33 @@ pre .javascript .function {
 .fancybox-close:hover {
   border: none;
 }
+.post-copyright {
+  margin: 2em 0 0;
+  padding: 0.5em 1em;
+  border-left: 3px solid #ff1700;
+  background-color: #f9f9f9;
+  list-style: none;
+}
+.rtl.post-body p,
+.rtl.post-body a,
+.rtl.post-body h1,
+.rtl.post-body h2,
+.rtl.post-body h3,
+.rtl.post-body h4,
+.rtl.post-body h5,
+.rtl.post-body h6,
+.rtl.post-body li,
+.rtl.post-body ul,
+.rtl.post-body ol {
+  direction: rtl;
+  font-family: UKIJ Ekran;
+}
+.rtl.post-body p {
+  font-size: 16px;
+}
+.rtl.post-title {
+  font-family: UKIJ Ekran;
+}
 .sidebar {
   position: fixed;
   right: 0;
@@ -1700,7 +1705,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d42d08;
+  background: #3b8aff;
 }
 .links-of-blogroll {
   font-size: 13px;
