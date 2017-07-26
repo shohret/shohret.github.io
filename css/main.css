@@ -1114,7 +1114,7 @@ pre .javascript .function {
   font-size: 16px;
 }
 .post-title.rtl a,
-h1 {
+.post-title h1 {
   direction: rtl;
   font-family: UKIJ Ekran;
 }
@@ -1700,7 +1700,7 @@ h1 {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #be63de;
+  background: #c9ffba;
 }
 .links-of-blogroll {
   font-size: 13px;
