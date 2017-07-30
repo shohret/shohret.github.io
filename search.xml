@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Very Simple Android App - MathSucks]]></title>
+    <url>%2F2017%2F07%2F30%2FVery-Simple-Android-App-MathSucks%2F</url>
+    <content type="text"><![CDATA[Just want to make a note for this very simple android app, which does percentages. Even though this is super simple, I still had a problem when I run it :sweat_smile: . The problem I had is every TextView, Button, EditText aligned to top left side of the screen. I checked the property of them, all center, it is supposed to work.Then, I realized the default layout is ConstraintLayout, and I tried to change it to RelativeLayout, every widget on the design screen went back to top left side. I dragged them back to the center, aligned them vertically, tried to run it. It worked~~~. Code edited in MainActivity.java1234567891011121314151617181920212223242526272829public class MainActivity extends AppCompatActivity &#123; TextView totalTextView; EditText percentageTxt; EditText numberTxt; @Override protected void onCreate(Bundle savedInstanceState) &#123; super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar); setSupportActionBar(toolbar); totalTextView = (TextView) findViewById(R.id.totalTextView); percentageTxt = (EditText) findViewById(R.id.percentageTxt); numberTxt = (EditText) findViewById(R.id.numberTxt); Button calcBtn = (Button) findViewById(R.id.calcBtn); calcBtn.setOnClickListener(new View.OnClickListener() &#123; @Override public void onClick (View view) &#123; float percentage = Float.parseFloat(percentageTxt.getText().toString()); float dec = percentage / 100; float total = dec * Float.parseFloat(numberTxt.getText().toString()); totalTextView.setText (Float.toString(total)); &#125; &#125;); &#125; Demo Screens]]></content>
+      <categories>
+        <category>Computer Science</category>
+      </categories>
+      <tags>
+        <tag>CS</tag>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[نى يېڭىلاش Github Credentials]]></title>
     <url>%2F2017%2F04%2F07%2FUpdating-Credentials-of-Github-in-Uyghur%2F</url>
     <content type="text"><![CDATA[ئەسسالام ئەلەيكۇم تۈنۈگۈن كەچ Github تىكى ھېساۋات نامىمنى ئۆزگەرتكەنىدىم. Github دا ھېسھۋات نامىمنى ئۆزگەرتكەندىنكېن باشتا قۇرغان بەزى ئامبار ۋە گېتخاب بېتىنىڭمۇ url ئادىرسىنىمۇ ئۆزگەرتىش كېرەك ئ‍ىدى. مەن ئۇلانىڭ ھەممىنى ئۆزگەرتىپ ئادىن كومپۇتۇرۇمدىكى hexo بلوگىمنىمۇ تەڭشىدىم. ئاقىدا hexo نى گېتخابقا چىقارماقچى بولغاندا كۈتۈلمىگەن مەسىلىگە يولۇقتۇم. بۇيرۇق كۆزنىكىدە تۆۋەندىكى خاتالىق چىقىۋېلىپ، كومپيۇتىردىكى ئارخىپنى github قا يوللىيالمىدىم. بۇ دېمەك كومپۇتۇرۇم ۋە گىتخابنىڭ ئۇلىنىشىدا مەسەلە كۆرۈلگەنىدى.كۆرۈلگەن مەسىلە: 12FATAL remote: Permission to NewUsername/NewUername.github.io.git denied to Oldusername.fatal: unable to access 'https://github.com/NewUsername/NewUsername.github.io.git/': The requested URL returned error: 403 بۇ مەسەلە ئادەتتە Github تىكى ھېساۋات نامىڭىزنى ئۆزگەتكەندە ۋەياكى بورۇنقىغا ئوخشىمايدىغان گېتخاب ئادىرسىڭىزنى ئىشلەتكەندە كۆرۈلىدۇ. بۇنى ئوڭشاش ئۈچۈن Mac ۋە Windows سېستىمىسىدىكى ئۇسۇللار تۆۋەندىكىچە: Mac1-ئۇسۇل Finder دىن Keychain Access ئەپنى ئىزدەڭ Keychain Access دىن github.com نى ئىزدەڭ ئاندىن شۇكۆزنەكنى ئىشلەتمەكچى بولغان گېتخاب ھېساۋاتىڭىزغا ئاساسەن ئۆزگەرتىش كىرگۈزسىڭىز بولىدۇ. 2-ئۇسۇلسىز terminal ئارقىلىىقمۇ بۇ ئىشەنچە شېفىرىنى ئۈچۈرىۋېتەلەيسىز، ئاندىن سىز گېتخابدا push قىلغاندا ھېساۋات نامىڭىز بىلەن مەخپى-شېفېرىڭىز قايتا سورىلىدۇ.شۇ ۋاقىتتا يېڭىلاتسىڭىزمۇ بولىدۇ. بۇنى قىلىش ئۈچۈن تۆۋەندىكى بۇيرۇقنى كىرگۈزۈڭ. 1234git credential-osxkeychain erasehost=github.comprotocol=https[Press Return] گېتخابدىكى ئېنگىلىىسچە ئەسلى ماتىريالنى كۆرمەكچى بولسىڭىز بۇيەنى چېكىڭ. WindowsWindows تا بىز Credential Manager نى ئىزدەپ github.com نى ئۆچۈرىۋېتىمىز، ئاندىن گېتخابنى ئىشلەتكەندە ھېساۋات-نام بىلەن شېفىر قايتا سورىلىدۇ، يېڭى گېتخاب ئادىرسىڭىز بويىنچە كىرگۈزسىڭىز بولىدۇ. سولتەرەپ تەكتىدىكى ئىزدەش كۆزنىكىدىن Credential Manager نى ئىزدىپ Windows Credential نى تاللاپ github.com نى ئۆچۈرىۋەتسىڭىز بولىدۇ.]]></content>
@@ -8,8 +20,8 @@
         <category>Computer Science</category>
       </categories>
       <tags>
-        <tag>GitHub</tag>
         <tag>Uyghur</tag>
+        <tag>GitHub</tag>
         <tag>git</tag>
       </tags>
   </entry>
@@ -21,8 +33,8 @@
         <category>Language</category>
       </categories>
       <tags>
-        <tag>Uyghur</tag>
         <tag>Japanese</tag>
+        <tag>Uyghur</tag>
         <tag>Language</tag>
         <tag>Tutorial</tag>
       </tags>
