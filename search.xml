@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Drawing and Song - Tokyo Ghoul]]></title>
+    <url>%2F2017%2F08%2F01%2FDrawing-and-Song-Tokyo-Ghoul%2F</url>
+    <content type="text"><![CDATA[Today I want to share a piece of my drawing and a song of Tokyo Ghoul new movie. Drawing is Kirishima Touka, from Tokyo Ghoul. And below is the song of Tokyo Ghoul new movie, I like it. Since I couldn’t find the full version of the song, let’s just enjoy the short version for now. Also, the lyric is attached below the video. 「Banka」illion - Tokyo Ghoul 言葉でなんか救えないそんな思いに抱かれしまった全世界が手を繋ぎ僕の行く手を通せんぼする 子供ながらについたあの一世一代の嘘のツケが今になって降ってきたの得意の許され方も通じない 声が聞こえるでしょう知っていたはずだよ悲しみが来た場所君が背をいつも向ける方 愛に凭れないで愛を語らないで無理に振りかざしたりはしないでよなんですぐ頼るのなんで寄りかかるのそんな曖昧なもので片目を塞がいないで 同じ酸素を吸ってるのにもう同じ息を吐けない枯れるまでが花なのなら最後までちゃんと燃やすよ 声で交わすよりも手を握りる方がわかることがあるよだから僕らはその手を離すのお喋りが好きなの 愛に凭れないで愛を語らないで無理に振りかざしたりはしないでよなんですぐ頼るのなんで寄りかかるの一生費やしても解ける定理に 愛より大きな声で君は歌う夢より微かな光の中で舞うたとえどれだけその光が醜く輝いていたってさ僕ら選ばれてしまった 愛より大きな声で君は歌う夢より微かな光の中で舞うたとえこの身体も世界も 僕を頑なに拒んでも僕は明日を選ぶ 愛より大きな声で君は歌う夢より微かな光の中で舞うたとえどれだけその光が醜く輝いていたってさ僕ら選ばれてしまった]]></content>
+      <categories>
+        <category>Art</category>
+      </categories>
+      <tags>
+        <tag>art</tag>
+        <tag>anime</tag>
+        <tag>drawing</tag>
+        <tag>Japanese</tag>
+        <tag>Tokyo Ghoul</tag>
+        <tag>song</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Very Simple Android App - MathSucks]]></title>
     <url>%2F2017%2F07%2F30%2FVery-Simple-Android-App-MathSucks%2F</url>
     <content type="text"><![CDATA[Just want to make a note for this very simple android app, which does percentages. Even though this is super simple, I still had a problem when I run it😅. The problem I had is every TextView, Button, EditText aligned to top left side of the screen. I checked the property of them, all center, it is supposed to work.Then, I realized the default layout is ConstraintLayout, and I tried to change it to RelativeLayout, every widget on the design screen went back to top left side. I dragged them back to the center, aligned them vertically, tried to run it. It worked~~~. Code edited in MainActivity.java1234567891011121314151617181920212223242526272829public class MainActivity extends AppCompatActivity &#123; TextView totalTextView; EditText percentageTxt; EditText numberTxt; @Override protected void onCreate(Bundle savedInstanceState) &#123; super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar); setSupportActionBar(toolbar); totalTextView = (TextView) findViewById(R.id.totalTextView); percentageTxt = (EditText) findViewById(R.id.percentageTxt); numberTxt = (EditText) findViewById(R.id.numberTxt); Button calcBtn = (Button) findViewById(R.id.calcBtn); calcBtn.setOnClickListener(new View.OnClickListener() &#123; @Override public void onClick (View view) &#123; float percentage = Float.parseFloat(percentageTxt.getText().toString()); float dec = percentage / 100; float total = dec * Float.parseFloat(numberTxt.getText().toString()); totalTextView.setText (Float.toString(total)); &#125; &#125;); &#125; Demo Screens]]></content>
@@ -20,8 +36,8 @@
         <category>Computer Science</category>
       </categories>
       <tags>
-        <tag>Uyghur</tag>
         <tag>GitHub</tag>
+        <tag>Uyghur</tag>
         <tag>git</tag>
       </tags>
   </entry>
