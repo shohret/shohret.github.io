@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Stack & Queue Implementation]]></title>
+    <url>%2F2018%2F01%2F16%2FStack-Queue-Implementation%2F</url>
+    <content type="text"><![CDATA[Stack and queue abstract data types implementation with Python. Stack LIFO structure Graph algorithm: depth-first search can be implemented with Stack Finding Euler-cycles in a Graph Finding strongly connected components in a graph If we use recursion, the OS will use stacks Most important application of stacks: stack memory it is a special region of the memory (in the RAM) it keeps track of the point to which each active subroutine should return control when it finishes executing store temporary variables created by each function stack memory is limited Heap Memory The heap is a region that is not automatically arranged for you This is a large region of memory, unlike stack memory C: malloc() and calloc() function, with pointers Java: reference types and objects are on the Heap We have to deallocate these memory chunks as it it not managed automatically. If not, memory leak! Slower than stack memory because of pointers stack memory heap memory limited in size no size limit fast access slow access local variables objects space is managed efficiently by CPU memory may be fragmented variables cannot be resized variables can be resized // realloc() Queue FIFO structure It can be implemented with linked lists application: BFS Operational research applications or stochastic models relies heavily on queues ImplementationStackQueueundefined undefined]]></content>
+      <categories>
+        <category>Computer Science</category>
+      </categories>
+      <tags>
+        <tag>data structure</tag>
+        <tag>array</tag>
+        <tag>Python</tag>
+        <tag>stack</tag>
+        <tag>queue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linked Lists Implementation]]></title>
     <url>%2F2018%2F01%2F16%2FLinked-Lists-Python%2F</url>
     <content type="text"><![CDATA[Advantage Linked Lists are dynamic data structures, arrays are not It can allocate the needed memory in runtime Very efficient if we want to manipulate the first elements Can store items with different sizes; an array assumes every element to be exactly the same It is easier for a linked list to grow organically. An array’s size usually need to be known ahead of time or re-created when it needs to grow Disadvantages Waste memory because of the references Nodes in a linked list must be read in order from the beginning as linked lists have sequential access (array items can be reached via indexes in O(1) time) Solution: doubly linked lists -&gt; easier to read, but memory is wasted in allocating space for a back pointer Pros &amp; Cons of an array Pros We can use random access by indexes, O(1) Very fast implementation and use Very fast data structure A good choice when we want to add items over and over again and we want to get items with given indexes Cons Usually, we have to know the size of the array at compile time If it is full we have to create a bigger array and have to copy values one by one. It is not able to store items with different types (Not the case in Python) Linked Lists vs Arrays Linked Lists Arrays search O(n) O(1) via index insert at the start O(1) O(N) insert at the end O(N) O(1) Waste Space O(N) 0 ImplementationLinked List implementation with Python123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596class Node(object): def __init__(self, data): self.data = data self.nextNode = Noneclass LinkedList(object): def __init__(self): self.head = None self.size = 0 # O(1) def insertStart(self, data): self.size = self.size + 1 newNode = Node(data) if not self.head: self.head = newNode else: newNode.nextNode = self.head self.head = newNode def remove(self, data): if self.head is None: return self.size = self.size - 1 currentNode = self.head previousNode = None while currentNode.data != data: previousNode = currentNode currentNode = currentNode.nextNode if previousNode is None: self.head = currentNode.nextNode else: previousNode = currentNode.nextNode # O(1) def size1(self): return self.size # O(N) not good !!!!! def seize2(self): actualNode = self.head size = 0 while actualNode is not None: size += 1 actualNode = actualNode.nextNode return size # O(N) def insertEnd(self, data): self.size = self.size + 1 newNode = Node(data) actualNode = self.head while actualNode.nextNode is not None: actualNode = actualNode.nextNode actualNode.nextNode = newNode def traverseList(self): actualNode = self.head while actualNode is not None: print('%d ' % actualNode.data) actualNode = actualNode.nextNodelinkedList = LinkedList()linkedList.insertStart(12)linkedList.insertStart(122)linkedList.insertStart(3)linkedList.insertEnd(5)linkedList.traverseList()linkedList.remove(3)linkedList.remove(5)linkedList.remove(122)print(linkedList.size1()) Other Note abstract data types data structures Stack array, linked list Queue array, linked list Priority queue heap Dictionary / hashmap array]]></content>
@@ -76,9 +91,9 @@
         <category>Language</category>
       </categories>
       <tags>
+        <tag>Japanese</tag>
         <tag>language</tag>
         <tag>tutorial</tag>
-        <tag>Japanese</tag>
         <tag>Uyghur</tag>
       </tags>
   </entry>
