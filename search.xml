@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linked Lists Implementation]]></title>
+    <url>%2F2018%2F01%2F16%2FLinked-Lists-Python%2F</url>
+    <content type="text"><![CDATA[Advantage Linked Lists are dynamic data structures, arrays are not It can allocate the needed memory in run time Very efficient if we want to manipulate the first elements Can store items with different sizes; an array assumes every element to be exactly the same It is easier for a linked list to grow organically. An array’s size usually need to be known ahead of time, or re-created when it needs to grow Disadvantages Waste memory because of the references Nodes in a linked list must be read in order from the beginning as linked lists have sequential access (array items can be reached via indexes in O(1) time) Solution: doubly linked lists -&gt; easier to read, but memory is wasted in allocating space for a back pointer Pros &amp; Cons of an array Pros We can use random access by indexes, O(1) Very fast implementation and use Vert fast data structure A good choice when we want to add items over and over again and we want to get items with given indexes Cons Usually we have to know the size of the array at compile time If it is full we have to create a bigger array and have to copy values one by one. It is not able to store items with different types (Not the case in Python) Linked Lists vs Arrays Linked Lists Arrays search O(n) O(1) via index insert at the start O(1) O(N) insert at the end O(N) O(1) Waste Space O(N) 0 ImplementationLinked List implementation with Python1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192class Node(object): def __init__(self, data): self.data = data self.nextNode = Noneclass LinkedList(object): def __init__(self): self.head = None self.size = 0 # O(1) def insertStart(self, data): self.size = self.size + 1 newNode = Node(data) if not self.head: self.head = newNode else: newNode.nextNode = self.head self.head = newNode def remove(self, data): if self.head is None: return self.size = self.size - 1 currentNode = self.head previousNode = None while currentNode.data != data: previousNode = currentNode currentNode = currentNode.nextNode if previousNode is None: self.head = currentNode.nextNode else: previousNode = currentNode.nextNode # O(1) def size1(self): return self.size # O(N) not good !!!!! def seize2(self): actualNode = self.head size = 0 while actualNode is not None: size += 1 actualNode = actualNode.nextNode return size # O(N) def insertEnd(self, data): self.size = self.size + 1 newNode = Node(data) actualNode = self.head while actualNode.nextNode is not None: actualNode = actualNode.nextNode actualNode.nextNode = newNode def traverseList(self): actualNode = self.head while actualNode is not None: print('%d ' % actualNode.data) actualNode = actualNode.nextNode# testlinkedList = LinkedList()linkedList.insertStart(12)linkedList.insertStart(122)linkedList.insertStart(3)linkedList.insertEnd(5)linkedList.traverseList()linkedList.remove(3)linkedList.remove(5)linkedList.remove(122)print(linkedList.size1())]]></content>
+      <categories>
+        <category>Computer Science</category>
+      </categories>
+      <tags>
+        <tag>data structure</tag>
+        <tag>linked list</tag>
+        <tag>array</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Duolingo Turkish Notes 1]]></title>
     <url>%2F2017%2F08%2F31%2FDuolingo-Turkish-Notes-1%2F</url>
     <content type="text"><![CDATA[It is been one week start learning Turkish on duolingo. Since Turkish is originated from my mother tongue, grammar part is easy for me. But still, need to remember some vocabs. To make it easier to review, I wanted to make a note here. BasicVocabelma: applesu: waterbir: a / anekmek: breadyemek: eatve: andiçmek: drinkveya: orkız: girlerkek: man (gender)adam: mankadın: woman (gender)süt: milksandviç: sandwich Grammarpronouns Singular Plural 1st Person Ben Biz 2nd Person Sen Siz 3rd Person O Onlar Common PhrasesVocabteşekkürler: thank youmerhaba: hellomemnun oldum: nice to meet youhoşçakal: byeiyi akşamlar: good eveninghayır: nogörüşürüz: nice to meet youiyi geceler: good nightevet: yesiyi şanslar: good luckaffedersin: execuse me:günaydın: good morninggüle güle: goodbyerica ederim: you’re welcomebiliyorum: I knowtürkçe: Turkishingilizce: Englishlütfen: pleasebilmiyorum: I don’t knowselam: Hihoş geldin: welcomehoş geldiniz: welcome (formal way)iyiyim: I am goodnasılsın: how are you?nasılsınız: how are you (formal way)tamam: alright Adjectives 1Vocabsıcak: hotsoğuk: coldçok: verygenç: younggüzel: beautifulyaşlı: old, eldereski: oldbu: thisşu: thatbunlar: theseşunlar: thosezor: difficultkolay: easybüyük: bigküçük: small, little FoodVocabkahve: coffeeportakal: orange (noun)makarna: pastayumurta: eggşeker: sugarpasta: cakeçilek: strawberrypeynir:cheesebalık: fishmeyve: fruitçay: teaet: meat, beefyağ: oillimon: lemonçorba: soupdomates: tomatosbira: beertavuk: chickenşarap: winetuz: salt AccusativeVocabmenü: menukolay gelsin: good luck / may it be easyGrammar Turkish English Ben gazete okurum. I read newspapers. or I read a newspaper. Ben gazeteyi okurum. I read the newspaper. Ben bir gazete okurum. I read a newspaper. Vowel Harmony Turkish Accusative Suffix ö, ü -(y)ü o,u -(y)u e,i -(y)i a,ı -(y)ı If the noun ends in a vowel, you have to insert the buffer letter y. Here are some examples: Turkish, Nominative Turkish, Accusative English elma elmayı apple gazete gazeteyi newspaper süt sütü milk limon limonu lemon Consonant Mutations Turkish, Nominative Turkish, Accusative English kitap kitabı book ağaç ağacı tree köpek köpeği dog This means:p → bt → dk → ğç → c AnimalsVocabköpek: dogkedi: catkuş: birdkaplumbağa: turtlekurbağa: frogkuzu: lambkoyun: sheepörümcek: spiderayı: bearfil: elephantfare: mouseaslan: lionhindi: turkeytavşan: rabbitbaykuş: owlördek: duckyengeç: crabat: horseinek: cow PluralGrammarForming the plural in Turkish is simple compared to the Accusative case. It is formed using the suffix -lAr. Now you might be thinking, “what is that capital A doing there?” to which we respond with 2-way vowel harmony. This is the other form of vowel harmony found in Turkey suffixes. Basically if the final vowel is front (i, e, ü, ö) use -ler. If it is back (a, ı, o, u), use the suffix -lar. This rule along with the rule for 4-way vowel harmony will be used in several suffixes across Turkish Grammar, so try to get used to it now. Turkish, Nominative English Turkish, Plural English ayı bear ayılar bears kuş bird kuşlar birds kurbağa frog kurbağalar frogs köpek dog köpekler dogs hindi turkey hindiler turkeys menü menu menüler menus To beCopula Suffix Person/Number Example English -(y)Im 1st sing. (Ben) mutluyum. I am happy. -sIn 2nd sing. (Sen) mutlusun. You are happy. ∅, -DIr 3rd sing O mutlu. He/She/It is happy. -(y)Iz 1st pl. (Biz) mutluyuz. We are happy. -sInIz 2nd pl. (Siz) mutlusunuz. You are happy. ∅, -DIr 3rd pl. Onlar mutlu/mutludur. They are happy. -lAr, -DIrlAr 3rd pl. (Onlar) mutlular/mutludurlar. They are happy. There are a few points to talk about in the above chart. All except the 3rd person pl. suffix follow 4-way vowel harmony. In the 1st person, you will see a buffer “-y-” be used if the adjective or noun ends in a vowel. The suffix -DIr is used to clarify any ambiguity, emphasize, or state facts. This both follows 4-way vowel harmony and has consonant harmony; ‘d’ changes to ‘t’ after the following consonants (p ç t k s ş h f). The suffix -lAr is optional in the 3rd person pl. However, it is only optional when referring to people. This suffix may not be used for items and animals. Only humans!]]></content>
@@ -9,8 +23,8 @@
       </categories>
       <tags>
         <tag>language</tag>
-        <tag>tutorial</tag>
         <tag>Turkish</tag>
+        <tag>tutorial</tag>
         <tag>duolingo</tag>
       </tags>
   </entry>
@@ -22,10 +36,10 @@
         <category>Art</category>
       </categories>
       <tags>
-        <tag>Japanese</tag>
         <tag>art</tag>
         <tag>anime</tag>
         <tag>drawing</tag>
+        <tag>Japanese</tag>
         <tag>Tokyo Ghoul</tag>
         <tag>song</tag>
       </tags>
@@ -38,7 +52,6 @@
         <category>Computer Science</category>
       </categories>
       <tags>
-        <tag>CS</tag>
         <tag>android</tag>
       </tags>
   </entry>
@@ -50,8 +63,8 @@
         <category>Computer Science</category>
       </categories>
       <tags>
-        <tag>Uyghur</tag>
         <tag>GitHub</tag>
+        <tag>Uyghur</tag>
         <tag>git</tag>
       </tags>
   </entry>
@@ -64,9 +77,9 @@
       </categories>
       <tags>
         <tag>Japanese</tag>
-        <tag>Uyghur</tag>
         <tag>language</tag>
         <tag>tutorial</tag>
+        <tag>Uyghur</tag>
       </tags>
   </entry>
   <entry>
