@@ -25,9 +25,9 @@
         <category>Japanese</category>
       </categories>
       <tags>
+        <tag>language</tag>
         <tag>grammar</tag>
         <tag>Japanese</tag>
-        <tag>language</tag>
       </tags>
   </entry>
   <entry>
@@ -69,8 +69,8 @@
         <category>Turkish</category>
       </categories>
       <tags>
-        <tag>language</tag>
         <tag>duolingo</tag>
+        <tag>language</tag>
         <tag>Turkish</tag>
         <tag>tutorial</tag>
       </tags>
@@ -126,9 +126,9 @@
         <category>Japanese</category>
       </categories>
       <tags>
-        <tag>Japanese</tag>
         <tag>language</tag>
         <tag>tutorial</tag>
+        <tag>Japanese</tag>
         <tag>Uyghur</tag>
       </tags>
   </entry>
