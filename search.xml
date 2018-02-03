@@ -25,8 +25,9 @@
         <category>Japanese</category>
       </categories>
       <tags>
-        <tag>grammar</tag>
         <tag>Japanese</tag>
+        <tag>language</tag>
+        <tag>grammar</tag>
       </tags>
   </entry>
   <entry>
@@ -53,10 +54,10 @@
         <category>Data Structure</category>
       </categories>
       <tags>
-        <tag>data structure</tag>
-        <tag>Python</tag>
         <tag>array</tag>
+        <tag>data structure</tag>
         <tag>linked list</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -69,6 +70,7 @@
       </categories>
       <tags>
         <tag>duolingo</tag>
+        <tag>language</tag>
         <tag>Turkish</tag>
       </tags>
   </entry>
@@ -80,10 +82,10 @@
         <category>Art</category>
       </categories>
       <tags>
-        <tag>Japanese</tag>
         <tag>anime</tag>
         <tag>art</tag>
         <tag>drawing</tag>
+        <tag>Japanese</tag>
         <tag>song</tag>
         <tag>Tokyo Ghoul</tag>
       </tags>
@@ -96,6 +98,9 @@
         <category>Computer Science</category>
         <category>App Development</category>
       </categories>
+      <tags>
+        <tag>android</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[نى يېڭىلاش Github Credentials]]></title>
@@ -106,9 +111,9 @@
         <category>Others</category>
       </categories>
       <tags>
+        <tag>Uyghur</tag>
         <tag>git</tag>
         <tag>GitHub</tag>
-        <tag>Uyghur</tag>
       </tags>
   </entry>
   <entry>
@@ -121,6 +126,8 @@
       </categories>
       <tags>
         <tag>Japanese</tag>
+        <tag>language</tag>
+        <tag>tutorial</tag>
         <tag>Uyghur</tag>
       </tags>
   </entry>
