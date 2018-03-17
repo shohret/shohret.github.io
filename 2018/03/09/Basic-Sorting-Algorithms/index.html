@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Open Sans:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.1" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=6.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png?v=6.0.1">
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  
+  <meta name="keywords" content="algorithm,Python,sorting," />
+
+
+<meta name="description" content="Some FeaturesTime ComplexityO(n^2) or O(nlogn) or O(n)Big-O CheatsheetIn PlaceStrictly an in-place sort needs only o(1) memory beyond the items being sorted.So an in place algorithm does not need any">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Basic Sorting Algorithms">
+<meta property="og:url" content="https://shohret.github.io/2018/03/09/Basic-Sorting-Algorithms/index.html">
+<meta property="og:site_name" content="Shohret">
+<meta property="og:description" content="Some FeaturesTime ComplexityO(n^2) or O(nlogn) or O(n)Big-O CheatsheetIn PlaceStrictly an in-place sort needs only o(1) memory beyond the items being sorted.So an in place algorithm does not need any">
+<meta property="og:updated_time" content="2018-03-17T21:07:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Basic Sorting Algorithms">
+<meta name="twitter:description" content="Some FeaturesTime ComplexityO(n^2) or O(nlogn) or O(n)Big-O CheatsheetIn PlaceStrictly an in-place sort needs only o(1) memory beyond the items being sorted.So an in place algorithm does not need any">
+
+
+
+
+
+
+  <link rel="canonical" href="https://shohret.github.io/2018/03/09/Basic-Sorting-Algorithms/"/>
+
+
+  <title>Basic Sorting Algorithms | Shohret</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shohret</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">この世界が間違っている</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shohret.github.io/2018/03/09/Basic-Sorting-Algorithms/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shohret">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shohret">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Basic Sorting Algorithms</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-09T19:23:06-06:00">2018-03-09</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Computer-Science/" itemprop="url" rel="index"><span itemprop="name">Computer Science</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Computer-Science/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/09/Basic-Sorting-Algorithms/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/09/Basic-Sorting-Algorithms/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Some-Features"><a href="#Some-Features" class="headerlink" title="Some Features"></a>Some Features</h2><p><strong>Time Complexity</strong><br>O(n^2) or O(nlogn) or O(n)<br><a href="http://bigocheatsheet.com/" target="_blank" rel="external">Big-O Cheatsheet</a><br><strong>In Place</strong><br>Strictly an in-place sort needs only o(1) memory beyond the items being sorted.<br>So an in place algorithm does not need any extra memory.<br><strong>Recursive</strong><br>Some sorting algorithms are implemented in a recursive manner, especially the divide and conquer ones. Such as merge sort and quick sort.<br><strong>Stable</strong><br>Stable sorting algorithms maintain the relative order of records with equal values.<br><a id="more"></a></p>
+<h2 id="Bubble-Sort"><a href="#Bubble-Sort" class="headerlink" title="Bubble Sort"></a>Bubble Sort</h2><ul>
+<li>Repeatedly steps through the list to be sorted, compares each pair of adjacent items and swaps them if they are in the wrong order</li>
+<li>It is too slow and impractical for most problems even when compared to insertion sort</li>
+<li>Bubble sort has worst-case and average complexity both O(n*n)</li>
+<li>Bubble sort is not a practical sorting algorithm</li>
+<li>It will not be efficient in the case of a reverse-ordered collection</li>
+<li>In computer graphics it is popular for its capability to detect a very small error (like swapping of only two elements) in almost-sorted arrays and fix it with just linear complexity</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Bubble Sort</span></div><div class="line"><span class="comment"># O(n^2) running time</span></div><div class="line"><span class="comment"># in-place sorting algorithm, no need extra memory</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span><span class="params">(nums)</span>:</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>, len(nums) - i - <span class="number">1</span>):</div><div class="line"></div><div class="line">            <span class="keyword">if</span> nums[j] &gt; nums[j + <span class="number">1</span>]:</div><div class="line">                swap(nums, j, j + <span class="number">1</span>)</div><div class="line">    <span class="keyword">return</span> nums</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">swap</span><span class="params">(nums, i, j)</span>:</span></div><div class="line">    temp = nums[i]</div><div class="line">    nums[i] = nums[j]</div><div class="line">    nums[j] = temp</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line"></div><div class="line">    a = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">7</span>]</div><div class="line">    b = [<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</div><div class="line">    print(bubble_sort(a))</div><div class="line">    print(bubble_sort(b))</div></pre></td></tr></table></figure>
+<div class="video-container"><iframe src="//www.youtube.com/embed/nmhjrI-aW5o" frameborder="0" allowfullscreen></iframe></div>
+<p><a href="https://www.geeksforgeeks.org/bubble-sort/" target="_blank" rel="external">Bubble Sort - GeeksforGeeks</a></p>
+<h2 id="Selection-Sort"><a href="#Selection-Sort" class="headerlink" title="Selection Sort"></a>Selection Sort</h2><ul>
+<li>O(n^2) running time complexity</li>
+<li>Selection sort is noted for its simplicity, and it has performance advantages over more complicated algorithms</li>
+<li>Particularly useful where auxiliary memory is limited</li>
+<li>The Algorithm divides the input list into two parts: the subarray of items already sorted and the subarray of items remaining to be sorted that occupy the rest of the array</li>
+<li>It is an in-place algorithm, no need for extra memory</li>
+<li>Selection sort almost always outperform bubble sort</li>
+<li>Not a stable sort, does not preserve the order of keys with equal values</li>
+<li>Quite counter-intuitive: selection sort and insertion sort are both typically faster for small arrays</li>
+<li>Make less writes than insertion sort, this can be important if writes are significantly more expensive than reads, for example with EEPROM or flash memory where every writes lessens the lifespan of the memory</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Selection Sort</span></div><div class="line"><span class="comment"># O(n^2) running time</span></div><div class="line"><span class="comment"># in-place sorting algorithm, no need extra memory</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">selection_sort</span><span class="params">(nums)</span>:</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</div><div class="line"></div><div class="line">        min_idx = i</div><div class="line"></div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i + <span class="number">1</span>, len(nums)):</div><div class="line">            <span class="keyword">if</span> nums[j] &lt; nums[min_idx]:</div><div class="line">                min_idx = j</div><div class="line"></div><div class="line">        <span class="keyword">if</span> min_idx != i:</div><div class="line">            swap(nums, min_idx, i)</div><div class="line"></div><div class="line">    <span class="keyword">return</span> nums</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">swap</span><span class="params">(nums, i, j)</span>:</span></div><div class="line">    temp = nums[i]</div><div class="line">    nums[i] = nums[j]</div><div class="line">    nums[j] = temp</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    a = [<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</div><div class="line">    b = [<span class="number">5</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">0</span>]</div><div class="line">    print(selection_sort(a))</div><div class="line">    print(selection_sort(b))</div></pre></td></tr></table></figure>
+<div class="video-container"><iframe src="//www.youtube.com/embed/xWBP4lzkoyM" frameborder="0" allowfullscreen></iframe></div>
+<p><a href="https://www.geeksforgeeks.org/selection-sort/" target="_blank" rel="external">Selection Sort - GeeksforGeeks</a></p>
+<h2 id="Insertion-Sort"><a href="#Insertion-Sort" class="headerlink" title="Insertion Sort"></a>Insertion Sort</h2><ul>
+<li>O(n^2) time complexity. It is a simple sorting algorithm that builds the final array one item at a time</li>
+<li>On large datasets it is very inefficient but on arrays with 10 to 20 items it is good</li>
+<li>Simple implementation, it is more efficient than other quadratic running time sorting procedures such as bubble sort and selection sort</li>
+<li>Adaptive algorithm, speed up when array is already substantially sorted</li>
+<li>Stable sort, preserve the order of the items with equal keys</li>
+<li>In-place algorithm, does not need any extra memory</li>
+<li>It is an online algorithm, it can sort an array as it receives it for example downloading data from web</li>
+<li>Hybrid algorithms uses insertion sort if the subarray is small enough</li>
+<li>Variant of insertion sort is shell sort</li>
+<li>Insertion sort requires more writes because the inner loop can require shifting large sections of the sorted portion of the array</li>
+<li>In general, insertion will write to the array O(n^2) times while selection sort will write only O(n) times. For this reason selection sort maybe preferable in cases where writing to memory is significantly more expensive than reading, such as flash memory</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Insertion Sort</span></div><div class="line"><span class="comment"># running time O(n^2)</span></div><div class="line"><span class="comment"># in-place algorithm, variant of insertion sort is shell sort</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">insertion_sort</span><span class="params">(nums)</span>:</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</div><div class="line"></div><div class="line">        j = i</div><div class="line"></div><div class="line">        <span class="keyword">while</span> j &gt; <span class="number">0</span> <span class="keyword">and</span> nums[j - <span class="number">1</span>] &gt; nums[j]:</div><div class="line">            swap(nums, j, j - <span class="number">1</span>)</div><div class="line">            j = j - <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> nums</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">swap</span><span class="params">(nums, i, j)</span>:</span></div><div class="line">    temp = nums[i]</div><div class="line">    nums[i] = nums[j]</div><div class="line">    nums[j] = temp</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    a = [<span class="number">4</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">1</span>]</div><div class="line"></div><div class="line">    print(insertion_sort(a))</div></pre></td></tr></table></figure>
+<div class="video-container"><iframe src="//www.youtube.com/embed/OGzPmgsI-pQ" frameborder="0" allowfullscreen></iframe></div>
+<p><a href="https://www.geeksforgeeks.org/insertion-sort/" target="_blank" rel="external">Insertion Sort - GeeksforGeeks</a></p>
+<h2 id="QuickSort"><a href="#QuickSort" class="headerlink" title="QuickSort"></a>QuickSort</h2><ul>
+<li>It is an efficient sorting algorithm</li>
+<li>A well implemented quickSort can outperform heap sort and merge sort -&gt; the main competitors of quickSort</li>
+<li>A comparison based algorithm, not able to be faster than linear time complexity</li>
+<li>The efficient implementation of quickSort is not stable, does not keep the relative order of items with equal value</li>
+<li>It is in-place, does not need any additional memory</li>
+<li>On average case it has O(nlogn) running time</li>
+<li>But the worst case running time is quadratic o(n^2)</li>
+<li>It is widely used in programming languages<ul>
+<li>Primitive types -&gt; usually quickSort is used</li>
+<li>Reference types / objects -&gt; usually merge sort is used</li>
+</ul>
+</li>
+<li>It is divide and conquer algorithm<ul>
+<li>pick an element from the array as pivot item</li>
+<li>partition phase: rearrange the array so that all elements with values less than the pivot, while all elements with values greater than the pivot come after it // equal values can go either way</li>
+<li>recursively apply these steps on the subarray</li>
+<li>base case for recursion: arrays of size zero or one never need to be sorted</li>
+</ul>
+</li>
+<li>Choosing the pivot item<ul>
+<li>It is very important, if we keep choosing bad pivots, the running time will be quadratic.</li>
+<li>Option 1: we can choose a pivot at random // usually it works</li>
+<li>Option 2: choosing the middle index of the array as the pivot</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># QuickSort</span></div><div class="line"><span class="comment"># in-place algorithm, O(NlogN)</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">quick_sort</span><span class="params">(nums, low, high)</span>:</span></div><div class="line">    <span class="keyword">if</span> low &gt;= high:</div><div class="line">        <span class="keyword">return</span></div><div class="line"></div><div class="line">    pivot_index = partition(nums, low, high)</div><div class="line">    quick_sort(nums, low, pivot_index - <span class="number">1</span>)</div><div class="line">    quick_sort(nums, pivot_index + <span class="number">1</span>, high)</div><div class="line"></div><div class="line">    <span class="keyword">return</span> nums</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">partition</span><span class="params">(nums, low, high)</span>:</span></div><div class="line">    pivot_index = (low + high) // <span class="number">2</span></div><div class="line">    swap(nums, pivot_index, high)</div><div class="line"></div><div class="line">    i = low</div><div class="line"></div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(low, high):</div><div class="line">        <span class="keyword">if</span> nums[j] &lt;= nums[high]:</div><div class="line">            swap(nums, i, j)</div><div class="line">            i += <span class="number">1</span></div><div class="line"></div><div class="line">    swap(nums, i, high)</div><div class="line"></div><div class="line">    <span class="keyword">return</span> i</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">swap</span><span class="params">(nums, i, j)</span>:</span></div><div class="line">    temp = nums[i]</div><div class="line">    nums[i] = nums[j]</div><div class="line">    nums[j] = temp</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    a = [<span class="number">4</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">1</span>, <span class="number">-7</span>, <span class="number">-3</span>, <span class="number">9</span>]</div><div class="line"></div><div class="line">    print(quick_sort(a, <span class="number">0</span>, len(a) - <span class="number">1</span>))</div></pre></td></tr></table></figure>
+<div class="video-container"><iframe src="//www.youtube.com/embed/PgBzjlCcFvc" frameborder="0" allowfullscreen></iframe></div>
+<p><a href="https://www.geeksforgeeks.org/quick-sort/" target="_blank" rel="external">QuickSort - GeeksforGeeks</a></p>
+<h2 id="Merge-Sort"><a href="#Merge-Sort" class="headerlink" title="Merge Sort"></a>Merge Sort</h2><ul>
+<li>Merge sort is a divide and conquer, stable, and comparison based algorithm</li>
+<li>Merge sort is not a in-place algorithm</li>
+<li>Efficient quickSort implementations generally outperform merge sort</li>
+<li>Merge sort is often the best choice for sorting a linked list: in this situation it is relatively easy to implement a merge sort in such a way that it requires only O(1) extra space</li>
+<li>Process:<ul>
+<li>divide the array into two subarrays recursively</li>
+<li>sort these subarrays recursively with merge sort again</li>
+<li>if there is only a single item left in the subarray -&gt; we consider it to be sorted by definition</li>
+<li>merge the subarrays to get the final sorted array</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Merge Sort</span></div><div class="line"><span class="comment"># not an in-place algorithm, O(NlogN)</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_sort</span><span class="params">(nums)</span>:</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> len(nums) == <span class="number">1</span>:</div><div class="line">        <span class="keyword">return</span></div><div class="line"></div><div class="line">    mid_index = len(nums) // <span class="number">2</span></div><div class="line"></div><div class="line">    left_half = nums[:mid_index]</div><div class="line">    right_half = nums[mid_index:]</div><div class="line"></div><div class="line">    <span class="comment"># divide</span></div><div class="line">    merge_sort(left_half)</div><div class="line">    merge_sort(right_half)</div><div class="line"></div><div class="line">    <span class="comment"># conquer</span></div><div class="line">    i, j, k = <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span></div><div class="line"></div><div class="line">    <span class="keyword">while</span> i &lt; len(left_half) <span class="keyword">and</span> j &lt; len(right_half):</div><div class="line">        <span class="keyword">if</span> left_half[i] &lt; right_half[j]:</div><div class="line">            nums[k] = left_half[i]</div><div class="line">            i += <span class="number">1</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            nums[k] = right_half[j]</div><div class="line">            j += <span class="number">1</span></div><div class="line"></div><div class="line">        k += <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">while</span> i &lt; len(left_half):</div><div class="line">        nums[k] = left_half[i]</div><div class="line">        i += <span class="number">1</span></div><div class="line">        k += <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">while</span> j &lt; len(right_half):</div><div class="line">        nums[k] = right_half[j]</div><div class="line">        j += <span class="number">1</span></div><div class="line">        k += <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> nums</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">-7</span>, <span class="number">-3</span>]</div><div class="line">    print(merge_sort(a))</div></pre></td></tr></table></figure>
+<div class="video-container"><iframe src="//www.youtube.com/embed/JSceec-wEyw" frameborder="0" allowfullscreen></iframe></div>
+<p><a href="https://www.geeksforgeeks.org/merge-sort/" target="_blank" rel="external">Merge Sort - GeeksforGeeks</a></p>
+<h2 id="Hybrid-Sort"><a href="#Hybrid-Sort" class="headerlink" title="Hybrid Sort"></a>Hybrid Sort</h2><h3 id="IntroSort"><a href="#IntroSort" class="headerlink" title="IntroSort"></a>IntroSort</h3><ul>
+<li>Also known as introspective sort</li>
+<li>It is a hybrid sorting algorithm that provides both fast average performance and optimal worst-case performance</li>
+<li>It begins with quickSort and switches to heapSort when quickSort becomes slow</li>
+<li>IntroSort = quickSort + heapSort<h3 id="Timsort"><a href="#Timsort" class="headerlink" title="Timsort"></a>Timsort</h3></li>
+<li>Timsort = merge sort + insertion sort</li>
+<li>It is a stable sorting algorithm</li>
+<li>It was implemented by Tim Peters in 2002 for use in the Python programming languge</li>
+<li>Best case running time: O(n)</li>
+<li>Worst case running time: O(nlogn)</li>
+<li>Worst case space complexity: O(n)</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Shohret
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://shohret.github.io/2018/03/09/Basic-Sorting-Algorithms/" title="Basic Sorting Algorithms">https://shohret.github.io/2018/03/09/Basic-Sorting-Algorithms/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/sorting/" rel="tag"># sorting</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/27/Heap-Implementation/" rel="next" title="Heap Implementation">
+                <i class="fa fa-chevron-left"></i> Heap Implementation
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Shohret" />
+            
+              <p class="site-author-name" itemprop="name">Shohret</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.instagram.com/mr.shohret/" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://fanzhenyu.me/" title="Line" target="_blank">Line</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Some-Features"><span class="nav-number">1.</span> <span class="nav-text">Some Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bubble-Sort"><span class="nav-number">2.</span> <span class="nav-text">Bubble Sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Selection-Sort"><span class="nav-number">3.</span> <span class="nav-text">Selection Sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Insertion-Sort"><span class="nav-number">4.</span> <span class="nav-text">Insertion Sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QuickSort"><span class="nav-number">5.</span> <span class="nav-text">QuickSort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Merge-Sort"><span class="nav-number">6.</span> <span class="nav-text">Merge Sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hybrid-Sort"><span class="nav-number">7.</span> <span class="nav-text">Hybrid Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IntroSort"><span class="nav-number">7.1.</span> <span class="nav-text">IntroSort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Timsort"><span class="nav-number">7.2.</span> <span class="nav-text">Timsort</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-graduation-cap"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shohret</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.1"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://shohret.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://shohret.github.io/2018/03/09/Basic-Sorting-Algorithms/';
+        this.page.identifier = '2018/03/09/Basic-Sorting-Algorithms/';
+        this.page.title = 'Basic Sorting Algorithms';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://shohret.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
