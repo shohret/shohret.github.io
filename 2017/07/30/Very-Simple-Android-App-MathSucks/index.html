@@ -122,21 +122,20 @@
   <meta name="keywords" content="android," />
 
 
-<meta name="description" content="Just want to make a note for this very simple android app, which does percentages.
-Even though this is super simple, I still had a problem when I run it😅. The problem I had is every TextView, Button,">
+<meta name="description" content="Just want to make a note for this very simple android app, which does percentages. Even though this is super simple, I still had a problem when I run it😅. The problem I had is every TextView, Button,">
+<meta name="keywords" content="android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Very Simple Android App - MathSucks">
 <meta property="og:url" content="https://shohret.github.io/2017/07/30/Very-Simple-Android-App-MathSucks/index.html">
 <meta property="og:site_name" content="Shohret">
-<meta property="og:description" content="Just want to make a note for this very simple android app, which does percentages.
-Even though this is super simple, I still had a problem when I run it😅. The problem I had is every TextView, Button,">
+<meta property="og:description" content="Just want to make a note for this very simple android app, which does percentages. Even though this is super simple, I still had a problem when I run it😅. The problem I had is every TextView, Button,">
+<meta property="og:locale" content="en">
 <meta property="og:image" content="http://i.imgur.com/uNi1rXMm.png">
 <meta property="og:image" content="http://i.imgur.com/VIJTL2gm.png">
 <meta property="og:updated_time" content="2018-02-03T04:56:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Very Simple Android App - MathSucks">
-<meta name="twitter:description" content="Just want to make a note for this very simple android app, which does percentages.
-Even though this is super simple, I still had a problem when I run it😅. The problem I had is every TextView, Button,">
+<meta name="twitter:description" content="Just want to make a note for this very simple android app, which does percentages. Even though this is super simple, I still had a problem when I run it😅. The problem I had is every TextView, Button,">
 <meta name="twitter:image" content="http://i.imgur.com/uNi1rXMm.png">
 
 
@@ -436,7 +435,7 @@ Even though this is super simple, I still had a problem when I run it😅. The p
       
         <p>Just want to make a note for this very simple android app, which does percentages.</p>
 <p>Even though this is super simple, I still had a problem when I run it😅. The problem I had is every TextView, Button, EditText aligned to top left side of the screen. I checked the property of them, all center, it is supposed to work.<br><a id="more"></a><br>Then, I realized the default layout is <code>ConstraintLayout</code>, and I tried to change it to <code>RelativeLayout</code>, every widget on the design screen went back to top left side. I dragged them back to the center, aligned them vertically, tried to run it. It worked~~~.</p>
-<p>Code edited in <code>MainActivity.java</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    TextView totalTextView;</div><div class="line">    EditText percentageTxt;</div><div class="line">    EditText numberTxt;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);</div><div class="line">        setSupportActionBar(toolbar);</div><div class="line"></div><div class="line">        totalTextView = (TextView) findViewById(R.id.totalTextView);</div><div class="line">        percentageTxt = (EditText) findViewById(R.id.percentageTxt);</div><div class="line">        numberTxt = (EditText) findViewById(R.id.numberTxt);</div><div class="line"></div><div class="line">        Button calcBtn = (Button) findViewById(R.id.calcBtn);</div><div class="line">        calcBtn.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span> <span class="params">(View view)</span> </span>&#123;</div><div class="line">                <span class="keyword">float</span> percentage = Float.parseFloat(percentageTxt.getText().toString());</div><div class="line">                <span class="keyword">float</span> dec = percentage / <span class="number">100</span>;</div><div class="line">                <span class="keyword">float</span> total = dec * Float.parseFloat(numberTxt.getText().toString());</div><div class="line">                totalTextView.setText (Float.toString(total));</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>Code edited in <code>MainActivity.java</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    TextView totalTextView;</span><br><span class="line">    EditText percentageTxt;</span><br><span class="line">    EditText numberTxt;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);</span><br><span class="line">        setSupportActionBar(toolbar);</span><br><span class="line"></span><br><span class="line">        totalTextView = (TextView) findViewById(R.id.totalTextView);</span><br><span class="line">        percentageTxt = (EditText) findViewById(R.id.percentageTxt);</span><br><span class="line">        numberTxt = (EditText) findViewById(R.id.numberTxt);</span><br><span class="line"></span><br><span class="line">        Button calcBtn = (Button) findViewById(R.id.calcBtn);</span><br><span class="line">        calcBtn.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span> <span class="params">(View view)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">float</span> percentage = Float.parseFloat(percentageTxt.getText().toString());</span><br><span class="line">                <span class="keyword">float</span> dec = percentage / <span class="number">100</span>;</span><br><span class="line">                <span class="keyword">float</span> total = dec * Float.parseFloat(numberTxt.getText().toString());</span><br><span class="line">                totalTextView.setText (Float.toString(total));</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
 <p>Demo Screens<br><img src="http://i.imgur.com/uNi1rXMm.png" alt="mathsucks"><br><img src="http://i.imgur.com/VIJTL2gm.png" alt="mathsucks1"></p>
 
       
@@ -577,7 +576,7 @@ Even though this is super simple, I still had a problem when I run it😅. The p
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -588,7 +587,7 @@ Even though this is super simple, I still had a problem when I run it😅. The p
                 
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -599,7 +598,7 @@ Even though this is super simple, I still had a problem when I run it😅. The p
                 
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
