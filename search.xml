@@ -36,6 +36,99 @@ Applications</li>
       </tags>
   </entry>
   <entry>
+    <title>Drawing and Song - Tokyo Ghoul</title>
+    <url>/2017/08/01/Drawing-and-Song-Tokyo-Ghoul/</url>
+    <content><![CDATA[<p>Today I want to share a piece of my drawing and a song of Tokyo Ghoul new movie. The character in the drawing is Kirishima Touka (霧島トーカ), from anime Tokyo Ghoul.</p>
+<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="http://i.imgur.com/4Zj1NT2.jpg)" class="full-image" alt="Touka-7/31/17" title="霧島トーカ　「東京グール」"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<a id="more"></a>
+<p>And below is the song of Tokyo Ghoul new movie, I like it, the lyric is attached below as well.</p>
+<p><a href="https://youtu.be/T0Vi7MMWPBo" target="_blank" rel="noopener"><strong>「Banka」illion</strong></a> - Tokyo Ghoul</p>
+<div class="video-container"><iframe src="//www.youtube.com/embed/T0Vi7MMWPBo" frameborder="0" allowfullscreen></iframe></div>
+<blockquote class="blockquote-center"><p>言葉でなんか救えない<br>そんな思いに抱かれしまった<br>全世界が手を繋ぎ<br>僕の行く手を通せんぼする</p>
+<p>子供ながらについたあの<br>一世一代の嘘のツケが<br>今になって降ってきたの<br>得意の許され方も通じない</p>
+<p>声が聞こえるでしょう<br>知っていたはずだよ<br>悲しみが来た場所<br>君が背をいつも向ける方</p>
+<p>愛に凭れないで<br>愛を語らないで<br>無理に振りかざしたりはしないでよ<br>なんですぐ頼るの<br>なんで寄りかかるの<br>そんな曖昧なもので<br>片目を塞がないで</p>
+<p>同じ酸素を吸ってるのにもう同じ息を吐けない<br>枯れるまでが花なのなら<br>最後までちゃんと燃やすよ</p>
+<p>声で交わすよりも<br>手を握りる方がわかることがあるよ<br>だから僕らはその手を離すの<br>お喋りが好きなの</p>
+<p>愛に凭れないで<br>愛を語らないで<br>無理に振りかざしたりはしないでよ<br>なんですぐ頼るの<br>なんで寄りかかるの<br>一生費やしても解ける定理に</p>
+<p>愛より大きな声で君は歌う<br>夢より微かな光の中で舞う<br>たとえどれだけその光が醜く輝いていたってさ<br>僕ら選ばれてしまった</p>
+<p>愛より大きな声で君は歌う<br>夢より微かな光の中で舞う<br>たとえこの身体も世界も  僕を頑なに拒んでも<br>僕は明日を選ぶ</p>
+<p>愛より大きな声で君は歌う<br>夢より微かな光の中で舞う<br>たとえどれだけその光が醜く輝いていたってさ<br>僕ら選ばれてしまった</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Art</category>
+      </categories>
+      <tags>
+        <tag>anime</tag>
+        <tag>art</tag>
+        <tag>drawing</tag>
+        <tag>Japanese</tag>
+        <tag>song</tag>
+        <tag>Tokyo Ghoul</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Heap Implementation</title>
+    <url>/2018/02/27/Heap-Implementation/</url>
+    <content><![CDATA[<h2 id="Priority-Queue"><a href="#Priority-Queue" class="headerlink" title="Priority Queue"></a>Priority Queue</h2><ul>
+<li>It is an abstract data type such as stack or queue</li>
+<li>But every item has an additional property: a priority value</li>
+<li>Priority Queue is usually implemented with heaps, but it can be implemented with self balancing trees as well</li>
+<li>The highest priority element is retrieved first, no FIFO structure here</li>
+<li>Operation: InsertWithPriority(data, priority), getHighestPriorityElement(), peek()</li>
+</ul>
+<a id="more"></a>
+<h2 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h2><ul>
+<li>It is basically a binary tree</li>
+<li>Two main binary heap types: min and max heap</li>
+<li>In a max heap, the keys of parent nodes are always greater than or equal to those of the children, the highest key is in the root node</li>
+<li>It cannot be unbalanced! We insert every new item to the next available place</li>
+<li>Application: Dijkstra algorithm, Prims algorithm</li>
+</ul>
+<h2 id="Heap-Sort"><a href="#Heap-Sort" class="headerlink" title="Heap Sort"></a>Heap Sort</h2><ul>
+<li>Comparison-based algorithm</li>
+<li>Use heap data structure rather than a linear-time search to find the maximum</li>
+<li>Generally a little bit slower than quick sort, it has the advantage of a more favorable worst-case O(nlogn) runtime</li>
+<li>Does NOT need additional memory</li>
+<li>First we have to construct the heap itself from the numbers we want to sort -&gt; O(n)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Operation</th>
+<th style="text-align:center">Time Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Find min/max</td>
+<td style="text-align:center">O(1)</td>
+</tr>
+<tr>
+<td style="text-align:center">Remove min/max</td>
+<td style="text-align:center">O(log(n))</td>
+</tr>
+<tr>
+<td style="text-align:center">Insert</td>
+<td style="text-align:center">O(log(n))</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Heap</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    HEAP_SIZE = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.heap = [<span class="number">0</span>] * Heap.HEAP_SIZE</span><br><span class="line">        self.currentPosition = <span class="number">-1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(self, item)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> self.isFull():</span><br><span class="line">            print(<span class="string">'Heap is full...'</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        self.currentPosition = self.currentPosition + <span class="number">1</span></span><br><span class="line">        self.heap[self.currentPosition] = item</span><br><span class="line">        self.fixUp(self.currentPosition)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fixUp</span><span class="params">(self, index)</span>:</span></span><br><span class="line"></span><br><span class="line">        parentIndex = int((index - <span class="number">1</span>) / <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> parentIndex &gt;= <span class="number">0</span> <span class="keyword">and</span> self.heap[parentIndex] &lt; self.heap[index]:</span><br><span class="line">            temp = self.heap[index]</span><br><span class="line">            self.heap[index] = self.heap[parentIndex]</span><br><span class="line">            self.heap[parentIndex] = temp</span><br><span class="line">            parentIndex = int((index - <span class="number">1</span>) / <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">heapsort</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.currentPosition + <span class="number">1</span>):</span><br><span class="line">            temp = self.heap[<span class="number">0</span>]</span><br><span class="line">            print(temp)</span><br><span class="line">            self.heap[<span class="number">0</span>] = self.heap[self.currentPosition - i]</span><br><span class="line">            self.heap[self.currentPosition] = temp</span><br><span class="line">            self.fixDown(<span class="number">0</span>, self.currentPosition - i - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fixDown</span><span class="params">(self, index, upto)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> index &lt;= upto:</span><br><span class="line"></span><br><span class="line">            leftChild = <span class="number">2</span> * index + <span class="number">1</span></span><br><span class="line">            rightChild = <span class="number">2</span> * index + <span class="number">2</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> leftChild &lt; upto:</span><br><span class="line">                childToSwap = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> rightChild &gt; upto:</span><br><span class="line">                    childToSwap = leftChild</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">if</span> self.heap[leftChild] &gt; self.heap[rightChild]:</span><br><span class="line">                        childToSwap = leftChild</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        childToSwap = rightChild</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> self.heap[index] &lt; self.heap[childToSwap]:</span><br><span class="line">                    temp = self.heap[index]</span><br><span class="line">                    self.heap[index] = self.heap[childToSwap]</span><br><span class="line">                    self.heap[childToSwap] = temp</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">                index = childToSwap</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isFull</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.currentPosition == heap.HEAP_SIZE:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line"></span><br><span class="line">    heap = Heap()</span><br><span class="line">    heap.insert(<span class="number">10</span>)</span><br><span class="line">    heap.insert(<span class="number">-20</span>)</span><br><span class="line">    heap.insert(<span class="number">0</span>)</span><br><span class="line">    heap.insert(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    heap.heapsort()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># heap in Python</span></span><br><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> heappop, heappush, heapify</span><br><span class="line"></span><br><span class="line">heap = []</span><br><span class="line">nums = [<span class="number">12</span>, <span class="number">3</span>, <span class="number">-2</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># for num in nums:</span></span><br><span class="line"><span class="comment">#     heappush(heap, num)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># while heap:</span></span><br><span class="line"><span class="comment">#     print(heappop(heap))</span></span><br><span class="line"></span><br><span class="line">heapify(nums)</span><br><span class="line"></span><br><span class="line">print(nums) <span class="comment"># &gt;&gt;&gt; [-2, 3, 8, 6, 4, 12, 9]</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Computer Science</category>
+        <category>Data Structure</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>data structure</tag>
+        <tag>heap</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Basic Sorting Algorithms</title>
     <url>/2018/03/09/Basic-Sorting-Algorithms/</url>
     <content><![CDATA[<h2 id="Some-Features"><a href="#Some-Features" class="headerlink" title="Some Features"></a>Some Features</h2><p><strong>Time Complexity</strong><br>Typical ones are: O(n^2) or O(nlogn) or O(n), for more check <a href="http://bigocheatsheet.com/" target="_blank" rel="noopener">Big-O Cheatsheet</a>.<br><strong>In-place</strong><br>Strictly an in-place sort needs only o(1) memory beyond the items being sorted.<br>So an in place algorithm does not need any extra memory.<br><strong>Recursive</strong><br>Some sorting algorithms are implemented in a recursive manner, especially the divide and conquer ones. Such as merge sort and quick sort.<br><strong>Stable</strong><br>Stable sorting algorithms maintain the relative order of records with equal values.<br><a id="more"></a></p>
@@ -422,99 +515,6 @@ Applications</li>
       </tags>
   </entry>
   <entry>
-    <title>Heap Implementation</title>
-    <url>/2018/02/27/Heap-Implementation/</url>
-    <content><![CDATA[<h2 id="Priority-Queue"><a href="#Priority-Queue" class="headerlink" title="Priority Queue"></a>Priority Queue</h2><ul>
-<li>It is an abstract data type such as stack or queue</li>
-<li>But every item has an additional property: a priority value</li>
-<li>Priority Queue is usually implemented with heaps, but it can be implemented with self balancing trees as well</li>
-<li>The highest priority element is retrieved first, no FIFO structure here</li>
-<li>Operation: InsertWithPriority(data, priority), getHighestPriorityElement(), peek()</li>
-</ul>
-<a id="more"></a>
-<h2 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h2><ul>
-<li>It is basically a binary tree</li>
-<li>Two main binary heap types: min and max heap</li>
-<li>In a max heap, the keys of parent nodes are always greater than or equal to those of the children, the highest key is in the root node</li>
-<li>It cannot be unbalanced! We insert every new item to the next available place</li>
-<li>Application: Dijkstra algorithm, Prims algorithm</li>
-</ul>
-<h2 id="Heap-Sort"><a href="#Heap-Sort" class="headerlink" title="Heap Sort"></a>Heap Sort</h2><ul>
-<li>Comparison-based algorithm</li>
-<li>Use heap data structure rather than a linear-time search to find the maximum</li>
-<li>Generally a little bit slower than quick sort, it has the advantage of a more favorable worst-case O(nlogn) runtime</li>
-<li>Does NOT need additional memory</li>
-<li>First we have to construct the heap itself from the numbers we want to sort -&gt; O(n)</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Operation</th>
-<th style="text-align:center">Time Complexity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Find min/max</td>
-<td style="text-align:center">O(1)</td>
-</tr>
-<tr>
-<td style="text-align:center">Remove min/max</td>
-<td style="text-align:center">O(log(n))</td>
-</tr>
-<tr>
-<td style="text-align:center">Insert</td>
-<td style="text-align:center">O(log(n))</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Heap</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    HEAP_SIZE = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.heap = [<span class="number">0</span>] * Heap.HEAP_SIZE</span><br><span class="line">        self.currentPosition = <span class="number">-1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(self, item)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> self.isFull():</span><br><span class="line">            print(<span class="string">'Heap is full...'</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        self.currentPosition = self.currentPosition + <span class="number">1</span></span><br><span class="line">        self.heap[self.currentPosition] = item</span><br><span class="line">        self.fixUp(self.currentPosition)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fixUp</span><span class="params">(self, index)</span>:</span></span><br><span class="line"></span><br><span class="line">        parentIndex = int((index - <span class="number">1</span>) / <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> parentIndex &gt;= <span class="number">0</span> <span class="keyword">and</span> self.heap[parentIndex] &lt; self.heap[index]:</span><br><span class="line">            temp = self.heap[index]</span><br><span class="line">            self.heap[index] = self.heap[parentIndex]</span><br><span class="line">            self.heap[parentIndex] = temp</span><br><span class="line">            parentIndex = int((index - <span class="number">1</span>) / <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">heapsort</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.currentPosition + <span class="number">1</span>):</span><br><span class="line">            temp = self.heap[<span class="number">0</span>]</span><br><span class="line">            print(temp)</span><br><span class="line">            self.heap[<span class="number">0</span>] = self.heap[self.currentPosition - i]</span><br><span class="line">            self.heap[self.currentPosition] = temp</span><br><span class="line">            self.fixDown(<span class="number">0</span>, self.currentPosition - i - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fixDown</span><span class="params">(self, index, upto)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> index &lt;= upto:</span><br><span class="line"></span><br><span class="line">            leftChild = <span class="number">2</span> * index + <span class="number">1</span></span><br><span class="line">            rightChild = <span class="number">2</span> * index + <span class="number">2</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> leftChild &lt; upto:</span><br><span class="line">                childToSwap = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> rightChild &gt; upto:</span><br><span class="line">                    childToSwap = leftChild</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">if</span> self.heap[leftChild] &gt; self.heap[rightChild]:</span><br><span class="line">                        childToSwap = leftChild</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        childToSwap = rightChild</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> self.heap[index] &lt; self.heap[childToSwap]:</span><br><span class="line">                    temp = self.heap[index]</span><br><span class="line">                    self.heap[index] = self.heap[childToSwap]</span><br><span class="line">                    self.heap[childToSwap] = temp</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">                index = childToSwap</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isFull</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.currentPosition == heap.HEAP_SIZE:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line"></span><br><span class="line">    heap = Heap()</span><br><span class="line">    heap.insert(<span class="number">10</span>)</span><br><span class="line">    heap.insert(<span class="number">-20</span>)</span><br><span class="line">    heap.insert(<span class="number">0</span>)</span><br><span class="line">    heap.insert(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    heap.heapsort()</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># heap in Python</span></span><br><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> heappop, heappush, heapify</span><br><span class="line"></span><br><span class="line">heap = []</span><br><span class="line">nums = [<span class="number">12</span>, <span class="number">3</span>, <span class="number">-2</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># for num in nums:</span></span><br><span class="line"><span class="comment">#     heappush(heap, num)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># while heap:</span></span><br><span class="line"><span class="comment">#     print(heappop(heap))</span></span><br><span class="line"></span><br><span class="line">heapify(nums)</span><br><span class="line"></span><br><span class="line">print(nums) <span class="comment"># &gt;&gt;&gt; [-2, 3, 8, 6, 4, 12, 9]</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Computer Science</category>
-        <category>Data Structure</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>data structure</tag>
-        <tag>heap</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Drawing and Song - Tokyo Ghoul</title>
-    <url>/2017/08/01/Drawing-and-Song-Tokyo-Ghoul/</url>
-    <content><![CDATA[<p>Today I want to share a piece of my drawing and a song of Tokyo Ghoul new movie. The character in the drawing is Kirishima Touka (霧島トーカ), from anime Tokyo Ghoul.</p>
-<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="http://i.imgur.com/4Zj1NT2.jpg)" class="full-image" alt="Touka-7/31/17" title="霧島トーカ　「東京グール」"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
-<a id="more"></a>
-<p>And below is the song of Tokyo Ghoul new movie, I like it, the lyric is attached below as well.</p>
-<p><a href="https://youtu.be/T0Vi7MMWPBo" target="_blank" rel="noopener"><strong>「Banka」illion</strong></a> - Tokyo Ghoul</p>
-<div class="video-container"><iframe src="//www.youtube.com/embed/T0Vi7MMWPBo" frameborder="0" allowfullscreen></iframe></div>
-<blockquote class="blockquote-center"><p>言葉でなんか救えない<br>そんな思いに抱かれしまった<br>全世界が手を繋ぎ<br>僕の行く手を通せんぼする</p>
-<p>子供ながらについたあの<br>一世一代の嘘のツケが<br>今になって降ってきたの<br>得意の許され方も通じない</p>
-<p>声が聞こえるでしょう<br>知っていたはずだよ<br>悲しみが来た場所<br>君が背をいつも向ける方</p>
-<p>愛に凭れないで<br>愛を語らないで<br>無理に振りかざしたりはしないでよ<br>なんですぐ頼るの<br>なんで寄りかかるの<br>そんな曖昧なもので<br>片目を塞がないで</p>
-<p>同じ酸素を吸ってるのにもう同じ息を吐けない<br>枯れるまでが花なのなら<br>最後までちゃんと燃やすよ</p>
-<p>声で交わすよりも<br>手を握りる方がわかることがあるよ<br>だから僕らはその手を離すの<br>お喋りが好きなの</p>
-<p>愛に凭れないで<br>愛を語らないで<br>無理に振りかざしたりはしないでよ<br>なんですぐ頼るの<br>なんで寄りかかるの<br>一生費やしても解ける定理に</p>
-<p>愛より大きな声で君は歌う<br>夢より微かな光の中で舞う<br>たとえどれだけその光が醜く輝いていたってさ<br>僕ら選ばれてしまった</p>
-<p>愛より大きな声で君は歌う<br>夢より微かな光の中で舞う<br>たとえこの身体も世界も  僕を頑なに拒んでも<br>僕は明日を選ぶ</p>
-<p>愛より大きな声で君は歌う<br>夢より微かな光の中で舞う<br>たとえどれだけその光が醜く輝いていたってさ<br>僕ら選ばれてしまった</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Art</category>
-      </categories>
-      <tags>
-        <tag>anime</tag>
-        <tag>art</tag>
-        <tag>drawing</tag>
-        <tag>Japanese</tag>
-        <tag>song</tag>
-        <tag>Tokyo Ghoul</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>How to Use ~ば</title>
     <url>/2018/01/29/How-to-Use-ba-Particle/</url>
     <content><![CDATA[<p>The conditional 〜ば form changes differently in these word types: 『動詞』(verb)、『い形容詞』(i adjective)、『な形容詞』(na adjective)、そして『名詞』(noun)。<br>And 『動詞』(verb) will include three different categories: u verb, ru verb, and exceptions.<br><a id="more"></a></p>
@@ -556,9 +556,136 @@ Applications</li>
         <category>Japanese</category>
       </categories>
       <tags>
-        <tag>language</tag>
         <tag>Japanese</tag>
+        <tag>language</tag>
         <tag>grammar</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ياپونتىلىنى ئۆگېنىش ھەققىدە</title>
+    <url>/2017/03/28/How-to-Learn-Japanese/</url>
+    <content><![CDATA[<p>ئەسسالام ئەلەيكۇم</p>
+<p>گۆدەك چاغلىرىمدىن باشلاپ تاھازىرغىچە ياپۇنىيەنىڭ كارتۇن فىلىمىنى (ئانىمې) كۆرۈپ كەلدىم. ھەمدە ئانىمې مىنىڭ ھاياتىمغا نۇرغۇن تەرەپلەردىن تەسىر قىلدى، مۇشۇ ئانىمېنى كۈرۈش جەريانىدا ياپون تىلىنىمۇ ئۆگەندىم. شۇڭا بۈگۈن ياپون تىلىنى ئۆگۈنۈشكە ئائىت ئۆزەمنىڭ قارىشىمنى سۆزلەپ ئۆتمەكچىمەن.<br><a id="more"></a></p>
+<h2 id="ياپون-تىلى-ھەققىدە"><a href="#ياپون-تىلى-ھەققىدە" class="headerlink" title="ياپون تىلى ھەققىدە"></a>ياپون تىلى ھەققىدە</h2><p>ياپون تىلى بولسا ئۇيغۇرتىلىغا ئوخشاش  ئالتاي تىل سىستىمىسىغا تەۋە، ۋىكىپېدىيادا بۇنىڭدىن سىرت  يەنە ياپونىك (Japonic) تىل سىستىمىسى دەپمۇ چۈشەندۈرۈپتۇ. ئاناتىلى ئۇيغۇرتىلى بولغان بىز ئۈچۈن ياپون تىلىنى ئۆگۈنۈش خېلىلا ئوڭاي، چۈنكى ياپون تىلىنىڭ جۈملە قۇرۇلمىسىمۇ ئۇيغۇرچىغا ئوخشاش ئگە + تولدۇرغۇچى + پىئىل شەكلىدە قۇرۇلىدۇ. شۇڭلاشقا مېڭىمىزدە تەپەككۈر قىلغاندىكى تەپەككۈر تىلىمىز، يەنى ئۇيغۇرتىلىغىمۇ ماس كېلىدۇ. يەنە كېلىپ بىز خەنزۇ تىلىنىمۇ بىلگەشكە يېزىش ئوقۇش جەھەتتىنمۇ غەرىپ ئەللىرىدىكىلەرگە قارىغاندا ئارتۇقچىلىقىمىز بار.</p>
+<h2 id="مەقسەت-ۋە-ھەيدىگۈچ"><a href="#مەقسەت-ۋە-ھەيدىگۈچ" class="headerlink" title="مەقسەت ۋە ھەيدىگۈچ"></a>مەقسەت ۋە ھەيدىگۈچ</h2><p>سىز ياپۇنتىلىنى ئۆگەنمەكچى بولدىڭىز، ياخشى. تىل ئۆگىنىش بولسا بىر ئۇزۇن مەزگىللىك جەريان. شۇڭا ئۆزىڭىزنىڭ ياپۇن تىلىنى ئۆگۈنۈشتىكى مەقسەتنى ئايدىڭ قىلىپ، ئاندىن ئۆزىڭىزنى ھەيدەپ تۇرۇپ، پىلانىڭىز بىلەن مېڭىپ ئۆگىنىڭ. قىىزىقىش بولسا ئەڭ ياخشى ھەيدىگۈچى كۈچ، بىر ئىقتىدارنى ئۆگۈنۈش جەريانىدا چىن-كۆڭلىڭىزدىن قىزىقسىڭىز ناھايىتى ياخشى ئۆگىنىپ كىتەلەيسىز. ئەلۋەتتە باشقا سىرىتقى ھەيدىگۈچمۇ بولىدۇ، مەسىلەن خىزمەت سەۋەپلىك، مەكتەپتىكى دەرىسلىك سەۋەپلىك دىگەندەك. سىرىتقى سەۋەپلەردىنمۇ ئەلۋەتتە قىزىقىش ھاسىل قىلغىلى بولىدۇ.  قۇرۇق گەپنىمۇ جىق قىلدىم، تۆۋەندە تۇرلۇك ماتىرياللارنى چۇشەندۈرۈپ ئۆتەي.😁</p>
+<h2 id="ماتىريال"><a href="#ماتىريال" class="headerlink" title="ماتىريال"></a>ماتىريال</h2><h3 id="دەرىسلىك-كىتاب"><a href="#دەرىسلىك-كىتاب" class="headerlink" title="دەرىسلىك كىتاب"></a>دەرىسلىك كىتاب</h3><p>مەن みんなの日本語، &lt;&lt;كۆپچىلىكنىڭ ياپونتىلى&gt;&gt; (大家的日语) دىگەن كىتابنى تەۋسىيە قىلىمەن. بۇ كىتابنى ياپوننىڭ تىل مەكتەپلىرىدىمۇ ئۇزۇن يىللاپ قوللىنىپ كەلگەن، بۇرۇن مەن تونۇيدىغان ياپونلۇق مۇئەللىممۇ بۇ كىتابنى بەك ماختايتى، خەنلە چىقاغان ئۆلچەملىك ياپون تىلى(标准日本语) دىگەن كىتابنى ئۇمۇئەللىم قەتتى ياختۇرمايتى. みんなの日本語 جەمى ئىككى قىسىم بولۇپ، ھەربىر قىسمىنىڭ تېكىسىت كىتابى بىلەن ئوقۇغۇچى پايدىلىنىش كىتابى دەپ ئىككى كىتابى بار، جەمى 4 كىتاب بولىدۇ. تېكىسىت كىتىبى تولۇق ياپونچە يېزىلغان تېكىسىت بولۇپ، ئوقۇغۇچى پايدىلىنىش كىتابىدا شۇ تېكىسىت كىتىبىدىكى دىئالوگنىڭ تەرجىمىسى، ئۇچرىغان خام سۆزلەرنىڭ چۇشەندۇرۇلىشى، ۋە گىراماتىكا بار، ئنتايىن چۈشەنچىلىك. سۆزلۈكنىمۇ باشلاشتا مۇشۇ كىتابدىكى سۆزلەرنىلا يادىلىسىڭىز بولىدۇ. ئاندىن فىلىم كۆرگەندە چۈشەنمىگەن ۋەياكى ياختۇرغان سۆز-جۈملىلەرنى خاتىرلىۋالسىڭىز سۆزلۈكىڭىزنى تېخىمۇ مول قىلىدۇ.</p>
+<p><img src="http://i.imgur.com/itUHIt4m.jpg" alt="Minna no nihongo"></p>
+<h3 id="ئاڭلاش-كۆرۈش"><a href="#ئاڭلاش-كۆرۈش" class="headerlink" title="ئاڭلاش-كۆرۈش"></a>ئاڭلاش-كۆرۈش</h3><p>يانفۇنىڭىزغا 沪江听力酷 دىگەن ئەپنى چۇشۇرۇپ ئىشلەتسىڭىز بولىدۇ، ھەرخىل تىلنىڭ ھەرخىل تېمىدىكى ئاۋازلىق ماتىرياللىرىنى تاپالايسىز، قولايلىق، مەن ئۆزۇم بۇرۇن مۇشۇنى ئىشلىتەتتىم. ئاندىن みんなの日本語 نىڭ CD دىسكىسىنىمۇ ئاڭلاپ بېرىڭ. ئىسىمدە قېلىشچە 沪江听力酷 دىنمۇ みんなの日本語 نىڭ ئاۋازلىق ماتېريالىنى تاپقىلى بولىدۇ.</p>
+<p>قوشتىللىق (ياپونچە ۋە خەنزۇچە) خېتى بار ئانىمې ياكى تېلۋىزىيە تېياتىرلىرىنى خېلى جىق توربەتلەردىن تاپقىلى بولىدۇ. مەن ئادەتتە ئانىمې كۆگەشكە ئانىمېگە ئائىتنىلا بىلىدىكەنمە. ئانىمېنىڭ ھەرخىل تىپتىكى ژانراسى بولىدۇ، بۇرۇن كۆرۈپ باقمىغان بولسىڭىزمۇ مىنىڭچە سىز ياختۇردىغان ئانىمې چوقۇم چىقىدۇ. ئەگەر ماڭا ئۆزىڭىز ياخرۇرىدىغان ژانرانى دەپبەرسىڭىز سىزگە بىرياخشى ئانىمې تەۋسىيە قىلالايمەن.</p>
+<ul>
+<li>诸神字幕组</li>
+<li>天空数字幕组</li>
+</ul>
+<h3 id="لۇغەت"><a href="#لۇغەت" class="headerlink" title="لۇغەت"></a>لۇغەت</h3><p>خۇجىيىڭ تور مەكتىپىنىڭ توربەت لۇغىتىنى ئىشلەتسىڭىز بولىدۇ، بۇيەرنى چىكىپ زىيارەت قىلىڭ. ئەگەر تور بولمىسىمۇ ئىشلەتكىلى بولىدىغان لۇغەت بولسىكە دىسىڭىز ئەپ بازىرىدىن ئىزدەپ بېقىڭ ۋەياكى توۋەندە ئېلخەت ئادىرسىڭىزنى قالدۇرۇپ ئەسكەرىتسىڭىز مەن ئۆزەم ئىشلىتىدىغان ئاددى بىر لۇغەتنى ئەۋەتىپ بەرسەممۇ بولىدۇ، تورلۇغىتىدەك مول بولمىسىمۇ خېلى قولايلىق.</p>
+<h3 id="مەشىق-سوئال"><a href="#مەشىق-سوئال" class="headerlink" title="مەشىق سوئال"></a>مەشىق سوئال</h3><p>みんなの日本語 نىڭ ئىچىدىكى مەشىقلەر ناھايىتى ياخشى، شۇنى ئىشلەپ تولۇق چۇشىنىۋالسىڭىز بولىدۇ.</p>
+<h2 id="سۆزلەش"><a href="#سۆزلەش" class="headerlink" title="سۆزلەش"></a>سۆزلەش</h2><p>みんなの日本語 نىڭ ئىچىدىكى دىئالوگنى ئاۋازىڭىزنى چىقىرىپ ئوقۇپ يادىلىسىڭىز بەك ياخشى. ئاندىن بىرە فىلىم كۆگەندىمۇ شۇلانى دوراپ سۆزلىسىڭىزمۇ بولىدۇ. ئەگەر سىز ئالى-مەكتەپ ئوقۇغۇچىسى بولسىڭىز، مەكتىپىڭىزدىكى مەنبەلەردىن ياخشى پايدىلىنىڭ، ئادەتتە ياپونتىلى كەسپى بارلا مەكتەپ بولسا، بىر نەچچە نەپەر ياپونلۇق مۇئەللىم ئېنىقلام بار. شۇلانى ئىزدەپ چۈشەندۇرۈپ پاراڭلىشىڭ، ھەتتا دەرىسىگىمۇ قاتنىشالايسىز. بەكلام پادىسى بولىدۇ، ياپونلۇق مۇئەللىممۇ سىزنى ئۆز ئۇقۇغۇچىسىدەك كۆرۈپ ياردەم قىلىشى،مۇڭدىشىشى مۇمكىن. مەنمۇ ئەينى ۋاقىتتا شۇندا قىلىپ ياپونتىلى كەسپىنىڭ 3، 4 چى يىللىقتىكىلەرنىڭ دەرىسىنى ئېلىۋالغان ئىدىم.ئىشقىپ مەنبەنى ياخشى قەدىرلەڭ! دۆلەت ئىچىدە ئوقۇشقا كېتىدىغان خىراجەت بەكلام ئەرزان، ئامرىكىدەك يەرگە كەلسىڭىز، دەرىسلىك كىتابنىمۇ ئېلىشقا قۇربىڭىز يەتمەسلىكى ناھايىتى نورمال ئىش، بىر دەرىسلىك كىتاب قىممەت بولغاندا ھەتتا دولەتتىكى ئالى-مەكتەپنىڭ بىر يىللىق ئوقۇش پۇلىغىمۇ تەڭ بولالايدۇ. راس گەپ! 800 دوللارلىق كىتابنى كۆرەپ، بۇرۇن بىلىمنىڭ قانچىلىك ئەرزانچىلىق يەردە تۇرغانلىقىنى ھېس قىلغان ئدىم.😅</p>
+<h2 id="نىشان-ۋە-پىلان"><a href="#نىشان-ۋە-پىلان" class="headerlink" title="نىشان ۋە پىلان"></a>نىشان ۋە پىلان</h2><p>تىلنى ئۆگىنىپ ۋايىغا يەتكۈمىگىچە قەرەرلىك ئۆگۈنۈپ تەكرارلاپ تۇرمىسا ئادەم ئاسانلا ئۇنتۇيدۇ. شۇقا بۇ مۇساپىنى بېسىپ چىقىش ئۈچۈن، نىشاننى بېكىتىپ قەرەرلىك ئۆگۈنۇپ تۇرشىڭىز كېرەك. مەسىلەن توۋەندىكىدەك پىلان تۈزۇپ، ئۆزىڭىز بىكىتكەن ۋاقىتتا ئورۇنلاپ ماڭسىڭىز ناھايىتى ياخشى. مەسىلەن قىسقا مۇددەتلىك نىشاننى بىر ھەپتىدە، ئوتتۇرا مۇددەتلىكنى بىر ئايدا، ئۇزۇن مۇددەتلىك پىلاننى بىر يىلدا ئورۇنلاپ چىقىش دىگەندەك. ئەمدى ۋاقىت ئارلىقىنى ئۆزىڭىزنىڭ ئەھۋالىغا قاۋاپ بېكىتىڭ، قەرەرلىك داۋاملشتۇرۇش ئەڭ مۇھىم.</p>
+<h3 id="قىسقا-مۇددەتلىك-نىشان"><a href="#قىسقا-مۇددەتلىك-نىشان" class="headerlink" title="قىسقا مۇددەتلىك نىشان"></a>قىسقا مۇددەتلىك نىشان</h3><ul>
+<li>ياپونتىلى ئۆگىنىش كىتابىدىن بىر دەرىس ئۆگىنىش</li>
+<li>100 تال يېڭى سۆزلۈك ئوگىنىش</li>
+<li>ئوقۇلما: بىر ئادىراق ياشلار مانگاسىنى ئوقۇش. (ياپۇننىڭ چاتما رەسىملىك كارتون كىتابلىرى، 少年漫画).</li>
+<li>فىلىم: تەكتىدە ياپونچە خىتى بار ئانىمېدىن 5 قىسىم كۆرۇش ياكى ياپوننىڭ تېلۋىزىيە تىياتېرلىرىنى كۆرسىڭىزمۇ بولىدۇ، ھەم ياختۇرغان جۇملە سۆزلەرنى كۆرەپ بولۇپ خاتىرلىۋېلىش.</li>
+</ul>
+<h3 id="ئوتتۇرا-مۇددەتلىك-نىشان"><a href="#ئوتتۇرا-مۇددەتلىك-نىشان" class="headerlink" title="ئوتتۇرا مۇددەتلىك نىشان"></a>ئوتتۇرا مۇددەتلىك نىشان</h3><ul>
+<li>بىر دەرىسلىك كىتابنى تۈگىتىش</li>
+<li>بىر روماننى ئوقۇپ تۈگىتىش</li>
+<li>بۇرۇن ئوقۇغان مانگانى قايتا ئوقۇپ چىقىش</li>
+<li>3000 سۆزلۈك ئۆگىنىش</li>
+<li>بىر بۆلۇم تەكتىدە ياپونچە خىتى يوق ئانىمې كۈرۈش</li>
+</ul>
+<h3 id="ئۇزۇن-مۇددەتلىك-نىشان"><a href="#ئۇزۇن-مۇددەتلىك-نىشان" class="headerlink" title="ئۇزۇن مۇددەتلىك نىشان"></a>ئۇزۇن مۇددەتلىك نىشان</h3><ul>
+<li>تەكتىدە خېتى يوق ياكى پەقەتلا ياپونچە خېتى بار ئانىمېنى كورۈپ چۇشىنىش.</li>
+<li>مانگا ياكى روماننى ئوقۇپ چۈشىنىش</li>
+<li>ياپونتىلىنى تەرجىمە قىلالاش</li>
+<li>ياپونچە پاراڭلىشالاش.</li>
+</ul>
+<h2 id="ئاخىرىدا"><a href="#ئاخىرىدا" class="headerlink" title="ئاخىرىدا"></a>ئاخىرىدا</h2><p>ئەگەر ياپونتىلىغا ئائىت بىرە سوئاللا بولسا، ئىنكاس رايونىدا خەت قالدۇرۇپ سورىسىڭىز بولىدۇ.😀</p>
+]]></content>
+      <categories>
+        <category>Language &amp; Literature</category>
+        <category>Japanese</category>
+      </categories>
+      <tags>
+        <tag>Japanese</tag>
+        <tag>language</tag>
+        <tag>tutorial</tag>
+        <tag>Uyghur</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Stack &amp; Queue Implementation</title>
+    <url>/2018/01/16/Stack-Queue-Implementation/</url>
+    <content><![CDATA[<p>Stack and queue abstract data types implementation with Python.</p>
+<h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><ul>
+<li>LIFO structure</li>
+<li>Graph algorithm: depth-first search can be implemented with Stack</li>
+<li>Finding Euler-cycles in a Graph</li>
+<li>Finding strongly connected components in a graph</li>
+<li>If we use recursion, the OS will use stacks<a id="more"></a></li>
+<li>Most important application of stacks: stack memory<ul>
+<li>it is a special region of the memory (in the RAM)</li>
+<li>it keeps track of the point to which each active subroutine should return control when it finishes executing</li>
+<li>store temporary variables created by each function</li>
+<li>stack memory is limited</li>
+</ul>
+</li>
+</ul>
+<h3 id="Heap-Memory"><a href="#Heap-Memory" class="headerlink" title="Heap Memory"></a>Heap Memory</h3><ul>
+<li>The heap is a region that is not automatically arranged for you</li>
+<li>This is a large region of memory, unlike stack memory</li>
+<li>C: malloc() and calloc() function, with pointers</li>
+<li>Java: reference types and objects are on the Heap</li>
+<li>We have to deallocate these memory chunks as it it not managed automatically. If not, memory leak!</li>
+<li>Slower than stack memory because of pointers</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">stack memory</th>
+<th style="text-align:center">heap memory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">limited in size</td>
+<td style="text-align:center">no size limit</td>
+</tr>
+<tr>
+<td style="text-align:center">fast access</td>
+<td style="text-align:center">slow access</td>
+</tr>
+<tr>
+<td style="text-align:center">local variables</td>
+<td style="text-align:center">objects</td>
+</tr>
+<tr>
+<td style="text-align:center">space is managed efficiently by CPU</td>
+<td style="text-align:center">memory may be fragmented</td>
+</tr>
+<tr>
+<td style="text-align:center">variables cannot be resized</td>
+<td style="text-align:center">variables can be resized // realloc()</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><ul>
+<li>FIFO structure</li>
+<li>It can be implemented with linked lists</li>
+<li>application: BFS</li>
+<li>Operational research applications or stochastic models relies heavily on queues</li>
+</ul>
+<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><h3 id="Stack-1"><a href="#Stack-1" class="headerlink" title="Stack"></a>Stack</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># stack is an abstract data type (interface), LIFO</span></span><br><span class="line"><span class="comment"># there are 3 operations: push(), pop(), peek()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.stack = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.stack == []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self.stack.append(data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        data = self.stack[<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">del</span> self.stack[<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peek</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.stack[<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sizeStack</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.stack)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># test</span></span><br><span class="line">stack = Stack()</span><br><span class="line"></span><br><span class="line">stack.push(<span class="number">1</span>)</span><br><span class="line">stack.push(<span class="number">2</span>)</span><br><span class="line">stack.push(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">print(stack.sizeStack())</span><br><span class="line">print(<span class="string">'popped: '</span>, stack.pop())</span><br><span class="line">print(stack.sizeStack())</span><br><span class="line"></span><br><span class="line">print(<span class="string">'peeked: '</span>, stack.peek())</span><br><span class="line">print(stack.sizeStack())</span><br></pre></td></tr></table></figure>
+<h3 id="Queue-1"><a href="#Queue-1" class="headerlink" title="Queue"></a>Queue</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># queue is an abstract data type (interface) FIFO</span></span><br><span class="line"><span class="comment"># operations: enqueue(), dequeue(), peek()</span></span><br><span class="line"><span class="comment"># e.g: CPU scheduling, IO buffer</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.queue = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.queue == []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">enqueue</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self.queue.append(data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dequeue</span><span class="params">(self)</span>:</span></span><br><span class="line">        data = self.queue[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">del</span> self.queue[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peek</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.queue[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sizeQueue</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.queue)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># test</span></span><br><span class="line">queue = Queue()</span><br><span class="line"></span><br><span class="line">queue.enqueue(<span class="number">1</span>)</span><br><span class="line">queue.enqueue(<span class="number">2</span>)</span><br><span class="line">queue.enqueue(<span class="number">3</span>)</span><br><span class="line">queue.enqueue(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'dequeue: '</span>, queue.dequeue())</span><br><span class="line">print(queue.sizeQueue())</span><br><span class="line"></span><br><span class="line">print(<span class="string">'peek: '</span>, queue.peek())</span><br><span class="line">print(queue.sizeQueue())</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Computer Science</category>
+        <category>Data Structure</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>data structure</tag>
+        <tag>queue</tag>
+        <tag>stack</tag>
       </tags>
   </entry>
   <entry>
@@ -663,54 +790,38 @@ Applications</li>
       </tags>
   </entry>
   <entry>
-    <title>ياپونتىلىنى ئۆگېنىش ھەققىدە</title>
-    <url>/2017/03/28/How-to-Learn-Japanese/</url>
+    <title>نى يېڭىلاش Github Credentials</title>
+    <url>/2017/04/07/Updating-Credentials-of-Github-in-Uyghur/</url>
     <content><![CDATA[<p>ئەسسالام ئەلەيكۇم</p>
-<p>گۆدەك چاغلىرىمدىن باشلاپ تاھازىرغىچە ياپۇنىيەنىڭ كارتۇن فىلىمىنى (ئانىمې) كۆرۈپ كەلدىم. ھەمدە ئانىمې مىنىڭ ھاياتىمغا نۇرغۇن تەرەپلەردىن تەسىر قىلدى، مۇشۇ ئانىمېنى كۈرۈش جەريانىدا ياپون تىلىنىمۇ ئۆگەندىم. شۇڭا بۈگۈن ياپون تىلىنى ئۆگۈنۈشكە ئائىت ئۆزەمنىڭ قارىشىمنى سۆزلەپ ئۆتمەكچىمەن.<br><a id="more"></a></p>
-<h2 id="ياپون-تىلى-ھەققىدە"><a href="#ياپون-تىلى-ھەققىدە" class="headerlink" title="ياپون تىلى ھەققىدە"></a>ياپون تىلى ھەققىدە</h2><p>ياپون تىلى بولسا ئۇيغۇرتىلىغا ئوخشاش  ئالتاي تىل سىستىمىسىغا تەۋە، ۋىكىپېدىيادا بۇنىڭدىن سىرت  يەنە ياپونىك (Japonic) تىل سىستىمىسى دەپمۇ چۈشەندۈرۈپتۇ. ئاناتىلى ئۇيغۇرتىلى بولغان بىز ئۈچۈن ياپون تىلىنى ئۆگۈنۈش خېلىلا ئوڭاي، چۈنكى ياپون تىلىنىڭ جۈملە قۇرۇلمىسىمۇ ئۇيغۇرچىغا ئوخشاش ئگە + تولدۇرغۇچى + پىئىل شەكلىدە قۇرۇلىدۇ. شۇڭلاشقا مېڭىمىزدە تەپەككۈر قىلغاندىكى تەپەككۈر تىلىمىز، يەنى ئۇيغۇرتىلىغىمۇ ماس كېلىدۇ. يەنە كېلىپ بىز خەنزۇ تىلىنىمۇ بىلگەشكە يېزىش ئوقۇش جەھەتتىنمۇ غەرىپ ئەللىرىدىكىلەرگە قارىغاندا ئارتۇقچىلىقىمىز بار.</p>
-<h2 id="مەقسەت-ۋە-ھەيدىگۈچ"><a href="#مەقسەت-ۋە-ھەيدىگۈچ" class="headerlink" title="مەقسەت ۋە ھەيدىگۈچ"></a>مەقسەت ۋە ھەيدىگۈچ</h2><p>سىز ياپۇنتىلىنى ئۆگەنمەكچى بولدىڭىز، ياخشى. تىل ئۆگىنىش بولسا بىر ئۇزۇن مەزگىللىك جەريان. شۇڭا ئۆزىڭىزنىڭ ياپۇن تىلىنى ئۆگۈنۈشتىكى مەقسەتنى ئايدىڭ قىلىپ، ئاندىن ئۆزىڭىزنى ھەيدەپ تۇرۇپ، پىلانىڭىز بىلەن مېڭىپ ئۆگىنىڭ. قىىزىقىش بولسا ئەڭ ياخشى ھەيدىگۈچى كۈچ، بىر ئىقتىدارنى ئۆگۈنۈش جەريانىدا چىن-كۆڭلىڭىزدىن قىزىقسىڭىز ناھايىتى ياخشى ئۆگىنىپ كىتەلەيسىز. ئەلۋەتتە باشقا سىرىتقى ھەيدىگۈچمۇ بولىدۇ، مەسىلەن خىزمەت سەۋەپلىك، مەكتەپتىكى دەرىسلىك سەۋەپلىك دىگەندەك. سىرىتقى سەۋەپلەردىنمۇ ئەلۋەتتە قىزىقىش ھاسىل قىلغىلى بولىدۇ.  قۇرۇق گەپنىمۇ جىق قىلدىم، تۆۋەندە تۇرلۇك ماتىرياللارنى چۇشەندۈرۈپ ئۆتەي.😁</p>
-<h2 id="ماتىريال"><a href="#ماتىريال" class="headerlink" title="ماتىريال"></a>ماتىريال</h2><h3 id="دەرىسلىك-كىتاب"><a href="#دەرىسلىك-كىتاب" class="headerlink" title="دەرىسلىك كىتاب"></a>دەرىسلىك كىتاب</h3><p>مەن みんなの日本語، &lt;&lt;كۆپچىلىكنىڭ ياپونتىلى&gt;&gt; (大家的日语) دىگەن كىتابنى تەۋسىيە قىلىمەن. بۇ كىتابنى ياپوننىڭ تىل مەكتەپلىرىدىمۇ ئۇزۇن يىللاپ قوللىنىپ كەلگەن، بۇرۇن مەن تونۇيدىغان ياپونلۇق مۇئەللىممۇ بۇ كىتابنى بەك ماختايتى، خەنلە چىقاغان ئۆلچەملىك ياپون تىلى(标准日本语) دىگەن كىتابنى ئۇمۇئەللىم قەتتى ياختۇرمايتى. みんなの日本語 جەمى ئىككى قىسىم بولۇپ، ھەربىر قىسمىنىڭ تېكىسىت كىتابى بىلەن ئوقۇغۇچى پايدىلىنىش كىتابى دەپ ئىككى كىتابى بار، جەمى 4 كىتاب بولىدۇ. تېكىسىت كىتىبى تولۇق ياپونچە يېزىلغان تېكىسىت بولۇپ، ئوقۇغۇچى پايدىلىنىش كىتابىدا شۇ تېكىسىت كىتىبىدىكى دىئالوگنىڭ تەرجىمىسى، ئۇچرىغان خام سۆزلەرنىڭ چۇشەندۇرۇلىشى، ۋە گىراماتىكا بار، ئنتايىن چۈشەنچىلىك. سۆزلۈكنىمۇ باشلاشتا مۇشۇ كىتابدىكى سۆزلەرنىلا يادىلىسىڭىز بولىدۇ. ئاندىن فىلىم كۆرگەندە چۈشەنمىگەن ۋەياكى ياختۇرغان سۆز-جۈملىلەرنى خاتىرلىۋالسىڭىز سۆزلۈكىڭىزنى تېخىمۇ مول قىلىدۇ.</p>
-<p><img src="http://i.imgur.com/itUHIt4m.jpg" alt="Minna no nihongo"></p>
-<h3 id="ئاڭلاش-كۆرۈش"><a href="#ئاڭلاش-كۆرۈش" class="headerlink" title="ئاڭلاش-كۆرۈش"></a>ئاڭلاش-كۆرۈش</h3><p>يانفۇنىڭىزغا 沪江听力酷 دىگەن ئەپنى چۇشۇرۇپ ئىشلەتسىڭىز بولىدۇ، ھەرخىل تىلنىڭ ھەرخىل تېمىدىكى ئاۋازلىق ماتىرياللىرىنى تاپالايسىز، قولايلىق، مەن ئۆزۇم بۇرۇن مۇشۇنى ئىشلىتەتتىم. ئاندىن みんなの日本語 نىڭ CD دىسكىسىنىمۇ ئاڭلاپ بېرىڭ. ئىسىمدە قېلىشچە 沪江听力酷 دىنمۇ みんなの日本語 نىڭ ئاۋازلىق ماتېريالىنى تاپقىلى بولىدۇ.</p>
-<p>قوشتىللىق (ياپونچە ۋە خەنزۇچە) خېتى بار ئانىمې ياكى تېلۋىزىيە تېياتىرلىرىنى خېلى جىق توربەتلەردىن تاپقىلى بولىدۇ. مەن ئادەتتە ئانىمې كۆگەشكە ئانىمېگە ئائىتنىلا بىلىدىكەنمە. ئانىمېنىڭ ھەرخىل تىپتىكى ژانراسى بولىدۇ، بۇرۇن كۆرۈپ باقمىغان بولسىڭىزمۇ مىنىڭچە سىز ياختۇردىغان ئانىمې چوقۇم چىقىدۇ. ئەگەر ماڭا ئۆزىڭىز ياخرۇرىدىغان ژانرانى دەپبەرسىڭىز سىزگە بىرياخشى ئانىمې تەۋسىيە قىلالايمەن.</p>
-<ul>
-<li>诸神字幕组</li>
-<li>天空数字幕组</li>
-</ul>
-<h3 id="لۇغەت"><a href="#لۇغەت" class="headerlink" title="لۇغەت"></a>لۇغەت</h3><p>خۇجىيىڭ تور مەكتىپىنىڭ توربەت لۇغىتىنى ئىشلەتسىڭىز بولىدۇ، بۇيەرنى چىكىپ زىيارەت قىلىڭ. ئەگەر تور بولمىسىمۇ ئىشلەتكىلى بولىدىغان لۇغەت بولسىكە دىسىڭىز ئەپ بازىرىدىن ئىزدەپ بېقىڭ ۋەياكى توۋەندە ئېلخەت ئادىرسىڭىزنى قالدۇرۇپ ئەسكەرىتسىڭىز مەن ئۆزەم ئىشلىتىدىغان ئاددى بىر لۇغەتنى ئەۋەتىپ بەرسەممۇ بولىدۇ، تورلۇغىتىدەك مول بولمىسىمۇ خېلى قولايلىق.</p>
-<h3 id="مەشىق-سوئال"><a href="#مەشىق-سوئال" class="headerlink" title="مەشىق سوئال"></a>مەشىق سوئال</h3><p>みんなの日本語 نىڭ ئىچىدىكى مەشىقلەر ناھايىتى ياخشى، شۇنى ئىشلەپ تولۇق چۇشىنىۋالسىڭىز بولىدۇ.</p>
-<h2 id="سۆزلەش"><a href="#سۆزلەش" class="headerlink" title="سۆزلەش"></a>سۆزلەش</h2><p>みんなの日本語 نىڭ ئىچىدىكى دىئالوگنى ئاۋازىڭىزنى چىقىرىپ ئوقۇپ يادىلىسىڭىز بەك ياخشى. ئاندىن بىرە فىلىم كۆگەندىمۇ شۇلانى دوراپ سۆزلىسىڭىزمۇ بولىدۇ. ئەگەر سىز ئالى-مەكتەپ ئوقۇغۇچىسى بولسىڭىز، مەكتىپىڭىزدىكى مەنبەلەردىن ياخشى پايدىلىنىڭ، ئادەتتە ياپونتىلى كەسپى بارلا مەكتەپ بولسا، بىر نەچچە نەپەر ياپونلۇق مۇئەللىم ئېنىقلام بار. شۇلانى ئىزدەپ چۈشەندۇرۈپ پاراڭلىشىڭ، ھەتتا دەرىسىگىمۇ قاتنىشالايسىز. بەكلام پادىسى بولىدۇ، ياپونلۇق مۇئەللىممۇ سىزنى ئۆز ئۇقۇغۇچىسىدەك كۆرۈپ ياردەم قىلىشى،مۇڭدىشىشى مۇمكىن. مەنمۇ ئەينى ۋاقىتتا شۇندا قىلىپ ياپونتىلى كەسپىنىڭ 3، 4 چى يىللىقتىكىلەرنىڭ دەرىسىنى ئېلىۋالغان ئىدىم.ئىشقىپ مەنبەنى ياخشى قەدىرلەڭ! دۆلەت ئىچىدە ئوقۇشقا كېتىدىغان خىراجەت بەكلام ئەرزان، ئامرىكىدەك يەرگە كەلسىڭىز، دەرىسلىك كىتابنىمۇ ئېلىشقا قۇربىڭىز يەتمەسلىكى ناھايىتى نورمال ئىش، بىر دەرىسلىك كىتاب قىممەت بولغاندا ھەتتا دولەتتىكى ئالى-مەكتەپنىڭ بىر يىللىق ئوقۇش پۇلىغىمۇ تەڭ بولالايدۇ. راس گەپ! 800 دوللارلىق كىتابنى كۆرەپ، بۇرۇن بىلىمنىڭ قانچىلىك ئەرزانچىلىق يەردە تۇرغانلىقىنى ھېس قىلغان ئدىم.😅</p>
-<h2 id="نىشان-ۋە-پىلان"><a href="#نىشان-ۋە-پىلان" class="headerlink" title="نىشان ۋە پىلان"></a>نىشان ۋە پىلان</h2><p>تىلنى ئۆگىنىپ ۋايىغا يەتكۈمىگىچە قەرەرلىك ئۆگۈنۈپ تەكرارلاپ تۇرمىسا ئادەم ئاسانلا ئۇنتۇيدۇ. شۇقا بۇ مۇساپىنى بېسىپ چىقىش ئۈچۈن، نىشاننى بېكىتىپ قەرەرلىك ئۆگۈنۇپ تۇرشىڭىز كېرەك. مەسىلەن توۋەندىكىدەك پىلان تۈزۇپ، ئۆزىڭىز بىكىتكەن ۋاقىتتا ئورۇنلاپ ماڭسىڭىز ناھايىتى ياخشى. مەسىلەن قىسقا مۇددەتلىك نىشاننى بىر ھەپتىدە، ئوتتۇرا مۇددەتلىكنى بىر ئايدا، ئۇزۇن مۇددەتلىك پىلاننى بىر يىلدا ئورۇنلاپ چىقىش دىگەندەك. ئەمدى ۋاقىت ئارلىقىنى ئۆزىڭىزنىڭ ئەھۋالىغا قاۋاپ بېكىتىڭ، قەرەرلىك داۋاملشتۇرۇش ئەڭ مۇھىم.</p>
-<h3 id="قىسقا-مۇددەتلىك-نىشان"><a href="#قىسقا-مۇددەتلىك-نىشان" class="headerlink" title="قىسقا مۇددەتلىك نىشان"></a>قىسقا مۇددەتلىك نىشان</h3><ul>
-<li>ياپونتىلى ئۆگىنىش كىتابىدىن بىر دەرىس ئۆگىنىش</li>
-<li>100 تال يېڭى سۆزلۈك ئوگىنىش</li>
-<li>ئوقۇلما: بىر ئادىراق ياشلار مانگاسىنى ئوقۇش. (ياپۇننىڭ چاتما رەسىملىك كارتون كىتابلىرى، 少年漫画).</li>
-<li>فىلىم: تەكتىدە ياپونچە خىتى بار ئانىمېدىن 5 قىسىم كۆرۇش ياكى ياپوننىڭ تېلۋىزىيە تىياتېرلىرىنى كۆرسىڭىزمۇ بولىدۇ، ھەم ياختۇرغان جۇملە سۆزلەرنى كۆرەپ بولۇپ خاتىرلىۋېلىش.</li>
-</ul>
-<h3 id="ئوتتۇرا-مۇددەتلىك-نىشان"><a href="#ئوتتۇرا-مۇددەتلىك-نىشان" class="headerlink" title="ئوتتۇرا مۇددەتلىك نىشان"></a>ئوتتۇرا مۇددەتلىك نىشان</h3><ul>
-<li>بىر دەرىسلىك كىتابنى تۈگىتىش</li>
-<li>بىر روماننى ئوقۇپ تۈگىتىش</li>
-<li>بۇرۇن ئوقۇغان مانگانى قايتا ئوقۇپ چىقىش</li>
-<li>3000 سۆزلۈك ئۆگىنىش</li>
-<li>بىر بۆلۇم تەكتىدە ياپونچە خىتى يوق ئانىمې كۈرۈش</li>
-</ul>
-<h3 id="ئۇزۇن-مۇددەتلىك-نىشان"><a href="#ئۇزۇن-مۇددەتلىك-نىشان" class="headerlink" title="ئۇزۇن مۇددەتلىك نىشان"></a>ئۇزۇن مۇددەتلىك نىشان</h3><ul>
-<li>تەكتىدە خېتى يوق ياكى پەقەتلا ياپونچە خېتى بار ئانىمېنى كورۈپ چۇشىنىش.</li>
-<li>مانگا ياكى روماننى ئوقۇپ چۈشىنىش</li>
-<li>ياپونتىلىنى تەرجىمە قىلالاش</li>
-<li>ياپونچە پاراڭلىشالاش.</li>
-</ul>
-<h2 id="ئاخىرىدا"><a href="#ئاخىرىدا" class="headerlink" title="ئاخىرىدا"></a>ئاخىرىدا</h2><p>ئەگەر ياپونتىلىغا ئائىت بىرە سوئاللا بولسا، ئىنكاس رايونىدا خەت قالدۇرۇپ سورىسىڭىز بولىدۇ.😀</p>
+<p>تۈنۈگۈن كەچ Github تىكى ھېساۋات نامىمنى ئۆزگەرتكەنىدىم. Github دا ھېسھۋات نامىمنى ئۆزگەرتكەندىنكېن باشتا قۇرغان بەزى ئامبار ۋە گىتخاب بېتىنىڭمۇ url ئادىرسىنىمۇ ئۆزگەرتىش كېرەك ئ‍ىدى. مەن ئۇلانىڭ ھەممىنى ئۆزگەرتىپ ئادىن كومپۇتۇرۇمدىكى hexo بلوگىمنىمۇ تەڭشىدىم. ئاقىدا hexo نى گىتخابقا چىقارماقچى بولغاندا كۈتۈلمىگەن مەسىلىگە يولۇقتۇم. بۇيرۇق كۆزنىكىدە تۆۋەندىكى خاتالىق چىقىۋېلىپ، كومپيۇتىردىكى ئارخىپنى github قا يوللىيالمىدىم. بۇ دېمەك كومپۇتۇرۇم ۋە گىتخابنىڭ ئۇلىنىشىدا مەسەلە كۆرۈلگەنىدى.<br><a id="more"></a><br><strong>كۆرۈلگەن مەسىلە:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">FATAL remote: Permission to NewUsername/NewUername.github.io.git denied to Oldusername.</span><br><span class="line">fatal: unable to access <span class="string">'https://github.com/NewUsername/NewUsername.github.io.git/'</span>: The requested URL returned error: 403</span><br></pre></td></tr></table></figure>
+<p>بۇ مەسەلە ئادەتتە Github تىكى ھېساۋات نامىڭىزنى ئۆزگەتكەندە ۋەياكى بورۇنقىغا ئوخشىمايدىغان گىتخاب ئادىرسىڭىزنى ئىشلەتكەندە كۆرۈلىدۇ. بۇنى ئوڭشاش ئۈچۈن Mac ۋە Windows سېستىمىسىدىكى ئۇسۇللار تۆۋەندىكىچە:</p>
+<h2 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h2><h3 id="1-ئۇسۇل"><a href="#1-ئۇسۇل" class="headerlink" title="1-ئۇسۇل"></a>1-ئۇسۇل</h3><ol>
+<li>Finder دىن Keychain Access ئەپنى ئىزدەڭ</li>
+<li>Keychain Access دىن github.com نى ئىزدەڭ</li>
+<li>ئاندىن شۇكۆزنەكنى ئىشلەتمەكچى بولغان گىتخاب ھېساۋاتىڭىزغا ئاساسەن ئۆزگەرتىش كىرگۈزسىڭىز بولىدۇ.</li>
+</ol>
+<p><img src="http://i.imgur.com/oxjO0eTm.png" alt="First Step"><br><img src="http://i.imgur.com/oXJcRtHm.png" alt="Second Step"></p>
+<h3 id="2-ئۇسۇل"><a href="#2-ئۇسۇل" class="headerlink" title="2-ئۇسۇل"></a>2-ئۇسۇل</h3><p>سىز  terminal ئارقىلىىقمۇ بۇ ئىشەنچە شېفىرىنى ئۈچۈرىۋېتەلەيسىز، ئاندىن سىز گىتخابدا push قىلغاندا ھېساۋات نامىڭىز بىلەن مەخپى-شېفېرىڭىز قايتا سورىلىدۇ.شۇ ۋاقىتتا يېڭىلاتسىڭىزمۇ بولىدۇ. بۇنى قىلىش ئۈچۈن تۆۋەندىكى بۇيرۇقنى كىرگۈزۈڭ.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git credential-osxkeychain erase</span><br><span class="line">host=github.com</span><br><span class="line">protocol=https</span><br><span class="line">[Press Return]</span><br></pre></td></tr></table></figure>
+<p>گىتخابدىكى ئېنگىلىىسچە ئەسلى ماتىريالنى كۆرمەكچى بولسىڭىز <a href="https://help.github.com/articles/updating-credentials-from-the-osx-keychain/" target="_blank" rel="noopener">بۇيەنى چېكىڭ</a>.</p>
+<hr>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>Windows تا بىز Credential Manager نى ئىزدەپ github.com نى ئۆچۈرىۋېتىمىز، ئاندىن گىتخابنى ئىشلەتكەندە ھېساۋات-نام بىلەن شېفىر قايتا سورىلىدۇ، يېڭى گىتخاب ئادىرسىڭىز بويىنچە كىرگۈزسىڭىز بولىدۇ.</p>
+<ol>
+<li>سولتەرەپ تەكتىدىكى ئىزدەش كۆزنىكىدىن  Credential Manager نى ئىزدىپ</li>
+<li>Windows Credential نى تاللاپ</li>
+<li>github.com نى ئۆچۈرىۋەتسىڭىز بولىدۇ.</li>
+</ol>
+<p><img src="http://i.imgur.com/HrSsJIGm.png" alt="Firstt"><br><img src="http://i.imgur.com/64cq2c7m.png" alt="Second"></p>
 ]]></content>
       <categories>
-        <category>Language &amp; Literature</category>
-        <category>Japanese</category>
+        <category>Computer Science</category>
+        <category>Others</category>
       </categories>
       <tags>
-        <tag>language</tag>
-        <tag>Japanese</tag>
-        <tag>tutorial</tag>
         <tag>Uyghur</tag>
+        <tag>git</tag>
+        <tag>GitHub</tag>
       </tags>
   </entry>
   <entry>
@@ -862,131 +973,19 @@ Applications</li>
       </tags>
   </entry>
   <entry>
-    <title>Stack &amp; Queue Implementation</title>
-    <url>/2018/01/16/Stack-Queue-Implementation/</url>
-    <content><![CDATA[<p>Stack and queue abstract data types implementation with Python.</p>
-<h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><ul>
-<li>LIFO structure</li>
-<li>Graph algorithm: depth-first search can be implemented with Stack</li>
-<li>Finding Euler-cycles in a Graph</li>
-<li>Finding strongly connected components in a graph</li>
-<li>If we use recursion, the OS will use stacks<a id="more"></a></li>
-<li>Most important application of stacks: stack memory<ul>
-<li>it is a special region of the memory (in the RAM)</li>
-<li>it keeps track of the point to which each active subroutine should return control when it finishes executing</li>
-<li>store temporary variables created by each function</li>
-<li>stack memory is limited</li>
-</ul>
-</li>
-</ul>
-<h3 id="Heap-Memory"><a href="#Heap-Memory" class="headerlink" title="Heap Memory"></a>Heap Memory</h3><ul>
-<li>The heap is a region that is not automatically arranged for you</li>
-<li>This is a large region of memory, unlike stack memory</li>
-<li>C: malloc() and calloc() function, with pointers</li>
-<li>Java: reference types and objects are on the Heap</li>
-<li>We have to deallocate these memory chunks as it it not managed automatically. If not, memory leak!</li>
-<li>Slower than stack memory because of pointers</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">stack memory</th>
-<th style="text-align:center">heap memory</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">limited in size</td>
-<td style="text-align:center">no size limit</td>
-</tr>
-<tr>
-<td style="text-align:center">fast access</td>
-<td style="text-align:center">slow access</td>
-</tr>
-<tr>
-<td style="text-align:center">local variables</td>
-<td style="text-align:center">objects</td>
-</tr>
-<tr>
-<td style="text-align:center">space is managed efficiently by CPU</td>
-<td style="text-align:center">memory may be fragmented</td>
-</tr>
-<tr>
-<td style="text-align:center">variables cannot be resized</td>
-<td style="text-align:center">variables can be resized // realloc()</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><ul>
-<li>FIFO structure</li>
-<li>It can be implemented with linked lists</li>
-<li>application: BFS</li>
-<li>Operational research applications or stochastic models relies heavily on queues</li>
-</ul>
-<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><h3 id="Stack-1"><a href="#Stack-1" class="headerlink" title="Stack"></a>Stack</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># stack is an abstract data type (interface), LIFO</span></span><br><span class="line"><span class="comment"># there are 3 operations: push(), pop(), peek()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.stack = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.stack == []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self.stack.append(data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        data = self.stack[<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">del</span> self.stack[<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peek</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.stack[<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sizeStack</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.stack)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># test</span></span><br><span class="line">stack = Stack()</span><br><span class="line"></span><br><span class="line">stack.push(<span class="number">1</span>)</span><br><span class="line">stack.push(<span class="number">2</span>)</span><br><span class="line">stack.push(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">print(stack.sizeStack())</span><br><span class="line">print(<span class="string">'popped: '</span>, stack.pop())</span><br><span class="line">print(stack.sizeStack())</span><br><span class="line"></span><br><span class="line">print(<span class="string">'peeked: '</span>, stack.peek())</span><br><span class="line">print(stack.sizeStack())</span><br></pre></td></tr></table></figure>
-<h3 id="Queue-1"><a href="#Queue-1" class="headerlink" title="Queue"></a>Queue</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># queue is an abstract data type (interface) FIFO</span></span><br><span class="line"><span class="comment"># operations: enqueue(), dequeue(), peek()</span></span><br><span class="line"><span class="comment"># e.g: CPU scheduling, IO buffer</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.queue = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.queue == []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">enqueue</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self.queue.append(data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dequeue</span><span class="params">(self)</span>:</span></span><br><span class="line">        data = self.queue[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">del</span> self.queue[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peek</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.queue[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sizeQueue</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.queue)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># test</span></span><br><span class="line">queue = Queue()</span><br><span class="line"></span><br><span class="line">queue.enqueue(<span class="number">1</span>)</span><br><span class="line">queue.enqueue(<span class="number">2</span>)</span><br><span class="line">queue.enqueue(<span class="number">3</span>)</span><br><span class="line">queue.enqueue(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'dequeue: '</span>, queue.dequeue())</span><br><span class="line">print(queue.sizeQueue())</span><br><span class="line"></span><br><span class="line">print(<span class="string">'peek: '</span>, queue.peek())</span><br><span class="line">print(queue.sizeQueue())</span><br></pre></td></tr></table></figure>
+    <title>Hello World</title>
+    <url>/2017/03/13/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>. </p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
-      <categories>
-        <category>Computer Science</category>
-        <category>Data Structure</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>data structure</tag>
-        <tag>queue</tag>
-        <tag>stack</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>نى يېڭىلاش Github Credentials</title>
-    <url>/2017/04/07/Updating-Credentials-of-Github-in-Uyghur/</url>
-    <content><![CDATA[<p>ئەسسالام ئەلەيكۇم</p>
-<p>تۈنۈگۈن كەچ Github تىكى ھېساۋات نامىمنى ئۆزگەرتكەنىدىم. Github دا ھېسھۋات نامىمنى ئۆزگەرتكەندىنكېن باشتا قۇرغان بەزى ئامبار ۋە گىتخاب بېتىنىڭمۇ url ئادىرسىنىمۇ ئۆزگەرتىش كېرەك ئ‍ىدى. مەن ئۇلانىڭ ھەممىنى ئۆزگەرتىپ ئادىن كومپۇتۇرۇمدىكى hexo بلوگىمنىمۇ تەڭشىدىم. ئاقىدا hexo نى گىتخابقا چىقارماقچى بولغاندا كۈتۈلمىگەن مەسىلىگە يولۇقتۇم. بۇيرۇق كۆزنىكىدە تۆۋەندىكى خاتالىق چىقىۋېلىپ، كومپيۇتىردىكى ئارخىپنى github قا يوللىيالمىدىم. بۇ دېمەك كومپۇتۇرۇم ۋە گىتخابنىڭ ئۇلىنىشىدا مەسەلە كۆرۈلگەنىدى.<br><a id="more"></a><br><strong>كۆرۈلگەن مەسىلە:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">FATAL remote: Permission to NewUsername/NewUername.github.io.git denied to Oldusername.</span><br><span class="line">fatal: unable to access <span class="string">'https://github.com/NewUsername/NewUsername.github.io.git/'</span>: The requested URL returned error: 403</span><br></pre></td></tr></table></figure>
-<p>بۇ مەسەلە ئادەتتە Github تىكى ھېساۋات نامىڭىزنى ئۆزگەتكەندە ۋەياكى بورۇنقىغا ئوخشىمايدىغان گىتخاب ئادىرسىڭىزنى ئىشلەتكەندە كۆرۈلىدۇ. بۇنى ئوڭشاش ئۈچۈن Mac ۋە Windows سېستىمىسىدىكى ئۇسۇللار تۆۋەندىكىچە:</p>
-<h2 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h2><h3 id="1-ئۇسۇل"><a href="#1-ئۇسۇل" class="headerlink" title="1-ئۇسۇل"></a>1-ئۇسۇل</h3><ol>
-<li>Finder دىن Keychain Access ئەپنى ئىزدەڭ</li>
-<li>Keychain Access دىن github.com نى ئىزدەڭ</li>
-<li>ئاندىن شۇكۆزنەكنى ئىشلەتمەكچى بولغان گىتخاب ھېساۋاتىڭىزغا ئاساسەن ئۆزگەرتىش كىرگۈزسىڭىز بولىدۇ.</li>
-</ol>
-<p><img src="http://i.imgur.com/oxjO0eTm.png" alt="First Step"><br><img src="http://i.imgur.com/oXJcRtHm.png" alt="Second Step"></p>
-<h3 id="2-ئۇسۇل"><a href="#2-ئۇسۇل" class="headerlink" title="2-ئۇسۇل"></a>2-ئۇسۇل</h3><p>سىز  terminal ئارقىلىىقمۇ بۇ ئىشەنچە شېفىرىنى ئۈچۈرىۋېتەلەيسىز، ئاندىن سىز گىتخابدا push قىلغاندا ھېساۋات نامىڭىز بىلەن مەخپى-شېفېرىڭىز قايتا سورىلىدۇ.شۇ ۋاقىتتا يېڭىلاتسىڭىزمۇ بولىدۇ. بۇنى قىلىش ئۈچۈن تۆۋەندىكى بۇيرۇقنى كىرگۈزۈڭ.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git credential-osxkeychain erase</span><br><span class="line">host=github.com</span><br><span class="line">protocol=https</span><br><span class="line">[Press Return]</span><br></pre></td></tr></table></figure>
-<p>گىتخابدىكى ئېنگىلىىسچە ئەسلى ماتىريالنى كۆرمەكچى بولسىڭىز <a href="https://help.github.com/articles/updating-credentials-from-the-osx-keychain/" target="_blank" rel="noopener">بۇيەنى چېكىڭ</a>.</p>
-<hr>
-<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>Windows تا بىز Credential Manager نى ئىزدەپ github.com نى ئۆچۈرىۋېتىمىز، ئاندىن گىتخابنى ئىشلەتكەندە ھېساۋات-نام بىلەن شېفىر قايتا سورىلىدۇ، يېڭى گىتخاب ئادىرسىڭىز بويىنچە كىرگۈزسىڭىز بولىدۇ.</p>
-<ol>
-<li>سولتەرەپ تەكتىدىكى ئىزدەش كۆزنىكىدىن  Credential Manager نى ئىزدىپ</li>
-<li>Windows Credential نى تاللاپ</li>
-<li>github.com نى ئۆچۈرىۋەتسىڭىز بولىدۇ.</li>
-</ol>
-<p><img src="http://i.imgur.com/HrSsJIGm.png" alt="Firstt"><br><img src="http://i.imgur.com/64cq2c7m.png" alt="Second"></p>
-]]></content>
-      <categories>
-        <category>Computer Science</category>
-        <category>Others</category>
-      </categories>
-      <tags>
-        <tag>Uyghur</tag>
-        <tag>git</tag>
-        <tag>GitHub</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Very Simple Android App - MathSucks</title>
-    <url>/2017/07/30/Very-Simple-Android-App-MathSucks/</url>
-    <content><![CDATA[<p>Just want to make a note for this very simple android app, which does percentages.</p>
-<p>Even though this is super simple, I still had a problem when I run it😅. The problem I had is every TextView, Button, EditText aligned to top left side of the screen. I checked the property of them, all center, it is supposed to work.<br><a id="more"></a><br>Then, I realized the default layout is <code>ConstraintLayout</code>, and I tried to change it to <code>RelativeLayout</code>, every widget on the design screen went back to top left side. I dragged them back to the center, aligned them vertically, tried to run it. It worked~~~.</p>
-<p>Code edited in <code>MainActivity.java</code><br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    TextView totalTextView;</span><br><span class="line">    EditText percentageTxt;</span><br><span class="line">    EditText numberTxt;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);</span><br><span class="line">        setSupportActionBar(toolbar);</span><br><span class="line"></span><br><span class="line">        totalTextView = (TextView) findViewById(R.id.totalTextView);</span><br><span class="line">        percentageTxt = (EditText) findViewById(R.id.percentageTxt);</span><br><span class="line">        numberTxt = (EditText) findViewById(R.id.numberTxt);</span><br><span class="line"></span><br><span class="line">        Button calcBtn = (Button) findViewById(R.id.calcBtn);</span><br><span class="line">        calcBtn.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span> <span class="params">(View view)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">float</span> percentage = Float.parseFloat(percentageTxt.getText().toString());</span><br><span class="line">                <span class="keyword">float</span> dec = percentage / <span class="number">100</span>;</span><br><span class="line">                <span class="keyword">float</span> total = dec * Float.parseFloat(numberTxt.getText().toString());</span><br><span class="line">                totalTextView.setText (Float.toString(total));</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>Demo Screens<br><img src="http://i.imgur.com/uNi1rXMm.png" alt="mathsucks"><br><img src="http://i.imgur.com/VIJTL2gm.png" alt="mathsucks1"></p>
-]]></content>
-      <categories>
-        <category>Computer Science</category>
-        <category>App Development</category>
-      </categories>
-      <tags>
-        <tag>android</tag>
-      </tags>
   </entry>
   <entry>
     <title>يىللارغا جاۋاپ</title>
@@ -1016,18 +1015,19 @@ Applications</li>
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2017/03/13/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>. </p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    <title>Very Simple Android App - MathSucks</title>
+    <url>/2017/07/30/Very-Simple-Android-App-MathSucks/</url>
+    <content><![CDATA[<p>Just want to make a note for this very simple android app, which does percentages.</p>
+<p>Even though this is super simple, I still had a problem when I run it😅. The problem I had is every TextView, Button, EditText aligned to top left side of the screen. I checked the property of them, all center, it is supposed to work.<br><a id="more"></a><br>Then, I realized the default layout is <code>ConstraintLayout</code>, and I tried to change it to <code>RelativeLayout</code>, every widget on the design screen went back to top left side. I dragged them back to the center, aligned them vertically, tried to run it. It worked~~~.</p>
+<p>Code edited in <code>MainActivity.java</code><br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    TextView totalTextView;</span><br><span class="line">    EditText percentageTxt;</span><br><span class="line">    EditText numberTxt;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);</span><br><span class="line">        setSupportActionBar(toolbar);</span><br><span class="line"></span><br><span class="line">        totalTextView = (TextView) findViewById(R.id.totalTextView);</span><br><span class="line">        percentageTxt = (EditText) findViewById(R.id.percentageTxt);</span><br><span class="line">        numberTxt = (EditText) findViewById(R.id.numberTxt);</span><br><span class="line"></span><br><span class="line">        Button calcBtn = (Button) findViewById(R.id.calcBtn);</span><br><span class="line">        calcBtn.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span> <span class="params">(View view)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">float</span> percentage = Float.parseFloat(percentageTxt.getText().toString());</span><br><span class="line">                <span class="keyword">float</span> dec = percentage / <span class="number">100</span>;</span><br><span class="line">                <span class="keyword">float</span> total = dec * Float.parseFloat(numberTxt.getText().toString());</span><br><span class="line">                totalTextView.setText (Float.toString(total));</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>Demo Screens<br><img src="http://i.imgur.com/uNi1rXMm.png" alt="mathsucks"><br><img src="http://i.imgur.com/VIJTL2gm.png" alt="mathsucks1"></p>
 ]]></content>
+      <categories>
+        <category>Computer Science</category>
+        <category>App Development</category>
+      </categories>
+      <tags>
+        <tag>android</tag>
+      </tags>
   </entry>
 </search>
