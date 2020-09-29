@@ -663,117 +663,6 @@ Applications</li>
       </tags>
   </entry>
   <entry>
-    <title>Stack &amp; Queue Implementation</title>
-    <url>/2018/01/16/Stack-Queue-Implementation/</url>
-    <content><![CDATA[<p>Stack and queue abstract data types implementation with Python.</p>
-<h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><ul>
-<li>LIFO structure</li>
-<li>Graph algorithm: depth-first search can be implemented with Stack</li>
-<li>Finding Euler-cycles in a Graph</li>
-<li>Finding strongly connected components in a graph</li>
-<li>If we use recursion, the OS will use stacks<a id="more"></a></li>
-<li>Most important application of stacks: stack memory<ul>
-<li>it is a special region of the memory (in the RAM)</li>
-<li>it keeps track of the point to which each active subroutine should return control when it finishes executing</li>
-<li>store temporary variables created by each function</li>
-<li>stack memory is limited</li>
-</ul>
-</li>
-</ul>
-<h3 id="Heap-Memory"><a href="#Heap-Memory" class="headerlink" title="Heap Memory"></a>Heap Memory</h3><ul>
-<li>The heap is a region that is not automatically arranged for you</li>
-<li>This is a large region of memory, unlike stack memory</li>
-<li>C: malloc() and calloc() function, with pointers</li>
-<li>Java: reference types and objects are on the Heap</li>
-<li>We have to deallocate these memory chunks as it it not managed automatically. If not, memory leak!</li>
-<li>Slower than stack memory because of pointers</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">stack memory</th>
-<th style="text-align:center">heap memory</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">limited in size</td>
-<td style="text-align:center">no size limit</td>
-</tr>
-<tr>
-<td style="text-align:center">fast access</td>
-<td style="text-align:center">slow access</td>
-</tr>
-<tr>
-<td style="text-align:center">local variables</td>
-<td style="text-align:center">objects</td>
-</tr>
-<tr>
-<td style="text-align:center">space is managed efficiently by CPU</td>
-<td style="text-align:center">memory may be fragmented</td>
-</tr>
-<tr>
-<td style="text-align:center">variables cannot be resized</td>
-<td style="text-align:center">variables can be resized // realloc()</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><ul>
-<li>FIFO structure</li>
-<li>It can be implemented with linked lists</li>
-<li>application: BFS</li>
-<li>Operational research applications or stochastic models relies heavily on queues</li>
-</ul>
-<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><h3 id="Stack-1"><a href="#Stack-1" class="headerlink" title="Stack"></a>Stack</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># stack is an abstract data type (interface), LIFO</span></span><br><span class="line"><span class="comment"># there are 3 operations: push(), pop(), peek()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.stack = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.stack == []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self.stack.append(data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        data = self.stack[<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">del</span> self.stack[<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peek</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.stack[<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sizeStack</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.stack)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># test</span></span><br><span class="line">stack = Stack()</span><br><span class="line"></span><br><span class="line">stack.push(<span class="number">1</span>)</span><br><span class="line">stack.push(<span class="number">2</span>)</span><br><span class="line">stack.push(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">print(stack.sizeStack())</span><br><span class="line">print(<span class="string">'popped: '</span>, stack.pop())</span><br><span class="line">print(stack.sizeStack())</span><br><span class="line"></span><br><span class="line">print(<span class="string">'peeked: '</span>, stack.peek())</span><br><span class="line">print(stack.sizeStack())</span><br></pre></td></tr></table></figure>
-<h3 id="Queue-1"><a href="#Queue-1" class="headerlink" title="Queue"></a>Queue</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># queue is an abstract data type (interface) FIFO</span></span><br><span class="line"><span class="comment"># operations: enqueue(), dequeue(), peek()</span></span><br><span class="line"><span class="comment"># e.g: CPU scheduling, IO buffer</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.queue = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.queue == []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">enqueue</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self.queue.append(data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dequeue</span><span class="params">(self)</span>:</span></span><br><span class="line">        data = self.queue[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">del</span> self.queue[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peek</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.queue[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sizeQueue</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.queue)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># test</span></span><br><span class="line">queue = Queue()</span><br><span class="line"></span><br><span class="line">queue.enqueue(<span class="number">1</span>)</span><br><span class="line">queue.enqueue(<span class="number">2</span>)</span><br><span class="line">queue.enqueue(<span class="number">3</span>)</span><br><span class="line">queue.enqueue(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'dequeue: '</span>, queue.dequeue())</span><br><span class="line">print(queue.sizeQueue())</span><br><span class="line"></span><br><span class="line">print(<span class="string">'peek: '</span>, queue.peek())</span><br><span class="line">print(queue.sizeQueue())</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Computer Science</category>
-        <category>Data Structure</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>data structure</tag>
-        <tag>queue</tag>
-        <tag>stack</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>نى يېڭىلاش Github Credentials</title>
-    <url>/2017/04/07/Updating-Credentials-of-Github-in-Uyghur/</url>
-    <content><![CDATA[<p>ئەسسالام ئەلەيكۇم</p>
-<p>تۈنۈگۈن كەچ Github تىكى ھېساۋات نامىمنى ئۆزگەرتكەنىدىم. Github دا ھېسھۋات نامىمنى ئۆزگەرتكەندىنكېن باشتا قۇرغان بەزى ئامبار ۋە گىتخاب بېتىنىڭمۇ url ئادىرسىنىمۇ ئۆزگەرتىش كېرەك ئ‍ىدى. مەن ئۇلانىڭ ھەممىنى ئۆزگەرتىپ ئادىن كومپۇتۇرۇمدىكى hexo بلوگىمنىمۇ تەڭشىدىم. ئاقىدا hexo نى گىتخابقا چىقارماقچى بولغاندا كۈتۈلمىگەن مەسىلىگە يولۇقتۇم. بۇيرۇق كۆزنىكىدە تۆۋەندىكى خاتالىق چىقىۋېلىپ، كومپيۇتىردىكى ئارخىپنى github قا يوللىيالمىدىم. بۇ دېمەك كومپۇتۇرۇم ۋە گىتخابنىڭ ئۇلىنىشىدا مەسەلە كۆرۈلگەنىدى.<br><a id="more"></a><br><strong>كۆرۈلگەن مەسىلە:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">FATAL remote: Permission to NewUsername/NewUername.github.io.git denied to Oldusername.</span><br><span class="line">fatal: unable to access <span class="string">'https://github.com/NewUsername/NewUsername.github.io.git/'</span>: The requested URL returned error: 403</span><br></pre></td></tr></table></figure>
-<p>بۇ مەسەلە ئادەتتە Github تىكى ھېساۋات نامىڭىزنى ئۆزگەتكەندە ۋەياكى بورۇنقىغا ئوخشىمايدىغان گىتخاب ئادىرسىڭىزنى ئىشلەتكەندە كۆرۈلىدۇ. بۇنى ئوڭشاش ئۈچۈن Mac ۋە Windows سېستىمىسىدىكى ئۇسۇللار تۆۋەندىكىچە:</p>
-<h2 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h2><h3 id="1-ئۇسۇل"><a href="#1-ئۇسۇل" class="headerlink" title="1-ئۇسۇل"></a>1-ئۇسۇل</h3><ol>
-<li>Finder دىن Keychain Access ئەپنى ئىزدەڭ</li>
-<li>Keychain Access دىن github.com نى ئىزدەڭ</li>
-<li>ئاندىن شۇكۆزنەكنى ئىشلەتمەكچى بولغان گىتخاب ھېساۋاتىڭىزغا ئاساسەن ئۆزگەرتىش كىرگۈزسىڭىز بولىدۇ.</li>
-</ol>
-<p><img src="http://i.imgur.com/oxjO0eTm.png" alt="First Step"><br><img src="http://i.imgur.com/oXJcRtHm.png" alt="Second Step"></p>
-<h3 id="2-ئۇسۇل"><a href="#2-ئۇسۇل" class="headerlink" title="2-ئۇسۇل"></a>2-ئۇسۇل</h3><p>سىز  terminal ئارقىلىىقمۇ بۇ ئىشەنچە شېفىرىنى ئۈچۈرىۋېتەلەيسىز، ئاندىن سىز گىتخابدا push قىلغاندا ھېساۋات نامىڭىز بىلەن مەخپى-شېفېرىڭىز قايتا سورىلىدۇ.شۇ ۋاقىتتا يېڭىلاتسىڭىزمۇ بولىدۇ. بۇنى قىلىش ئۈچۈن تۆۋەندىكى بۇيرۇقنى كىرگۈزۈڭ.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git credential-osxkeychain erase</span><br><span class="line">host=github.com</span><br><span class="line">protocol=https</span><br><span class="line">[Press Return]</span><br></pre></td></tr></table></figure>
-<p>گىتخابدىكى ئېنگىلىىسچە ئەسلى ماتىريالنى كۆرمەكچى بولسىڭىز <a href="https://help.github.com/articles/updating-credentials-from-the-osx-keychain/" target="_blank" rel="noopener">بۇيەنى چېكىڭ</a>.</p>
-<hr>
-<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>Windows تا بىز Credential Manager نى ئىزدەپ github.com نى ئۆچۈرىۋېتىمىز، ئاندىن گىتخابنى ئىشلەتكەندە ھېساۋات-نام بىلەن شېفىر قايتا سورىلىدۇ، يېڭى گىتخاب ئادىرسىڭىز بويىنچە كىرگۈزسىڭىز بولىدۇ.</p>
-<ol>
-<li>سولتەرەپ تەكتىدىكى ئىزدەش كۆزنىكىدىن  Credential Manager نى ئىزدىپ</li>
-<li>Windows Credential نى تاللاپ</li>
-<li>github.com نى ئۆچۈرىۋەتسىڭىز بولىدۇ.</li>
-</ol>
-<p><img src="http://i.imgur.com/HrSsJIGm.png" alt="Firstt"><br><img src="http://i.imgur.com/64cq2c7m.png" alt="Second"></p>
-]]></content>
-      <categories>
-        <category>Computer Science</category>
-        <category>Others</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-        <tag>GitHub</tag>
-        <tag>Uyghur</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ياپونتىلىنى ئۆگېنىش ھەققىدە</title>
     <url>/2017/03/28/How-to-Learn-Japanese/</url>
     <content><![CDATA[<p>ئەسسالام ئەلەيكۇم</p>
@@ -820,35 +709,8 @@ Applications</li>
       <tags>
         <tag>language</tag>
         <tag>Japanese</tag>
-        <tag>Uyghur</tag>
         <tag>tutorial</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>يىللارغا جاۋاپ</title>
-    <url>/2018/04/15/Yillargha-Jawap/</url>
-    <content><![CDATA[<blockquote class="blockquote-center"><p>  <span style="font-family: UKIJ Ekran;">ﻟﯘﺗﭙﯘﻟﻼ ﻣﯘﺗﻪﻟﻠﯩﭗ</span></p>
-<p>  ۋاقىت ئالدىراڭغۇ ساقلاپ تۇرمايدۇ،<br>  يىللار ۋاقىتنىڭ ئەڭ چوڭ يورغىسى.<br>  ئاققان سۇلار، ئاتقان تاڭلار قايتىلانمايدۇ،<br>  يورغا يىللار ئۆمۈرنىڭ يامان ئوغرىسى.<br><a id="more"></a><br>  ئوغرىلاپلا قاچىدۇ ئارقىغا يانماي،<br>  بىر-بىرىنى قوغلىشىپ، يورغىلىشىپ.<br>  ياشلىق بېغىدا بۇلبۇللار قانات قاقماي،<br>  يوپۇرماقلار قۇيۇلىدۇ پورلىشىپ.</p>
-<p>  ياشلىق ئادەمنىڭ زىلۋا بىر چېغى،<br>  تولىمۇ قىسقا ئۇنىڭ ئۆمرى بىراق،<br>  يىرتىلسا كالىندارنىڭ بىر ۋارىقى،<br>  ياشلىق گۈلىدىن تۆكۈلىدۇ بىر تال يۇپۇرماق.</p>
-<p>  يىللار شامىلى يەلپۈنىدۇ، ئىزلار كۆمۈلىدۇ،<br>  يوپۇرماقسىز دەرەخ بىچارە-بولىدۇ قاخشال.<br>  يىللار سېخى قۇرۇق كەلمەيدۇ ئەكىلىپ بېرىدۇ،<br>  قىزلارغا قورۇق، ئەرلەرگە ساقال.</p>
-<p>  بىراق يىللارنى تىللاش توغرا كەلمەيدۇ،<br>  مەيلى ئۆتىۋەرسۇن، ئۆزىنىڭ يولى.<br>  ئادەملەرمۇ ۋاقىتنى قولدىن بەرمەيدۇ،<br>  چۆللەرنى بوستان قىلغان ئادەملەر قولى.</p>
-<p>  يىللارنىڭ قوينى كەڭ، پۇرسىتى نۇرغۇن،<br>  تاغدەك ئىشلار يىللار بىلەن ئۆرە تۇرىدۇ.<br>  قاراب باق ئاخشامقى بوۋاق كىچىككىنە تۇرسۇن،<br>  تۈنۈگۈن ئۆمىلەپ، ھە… بۈگۈن مېڭىپ يۈرىدۇ.</p>
-<p>  كۆرەشچان بالىلار قوغلىشىپ يىللار،<br>  كۆرەش نەۋرىلىرىنى چوقۇم تاپىدۇ.<br>  ئاخشام بەخىت ئۈچۈن قۇربان بولغانلار،<br>  قەبرىسىنى يادلاپ گۈللەر ياپىدۇ.</p>
-<p>  مەيلى ساقال سوۋغا قىلسا قىلسۇن يىللار،<br>  مەنمۇ تاۋلىنىمەن يىللار قوينىدا.<br>  ئىجادىم شېئىرىمنىڭ ئىز تامغىسى بار،<br>  ئالدىمدىن قېچىپ ئۆتكەن ھەر يىل بوينىدا</p>
-<p>  قېرىماسمەن كۆرەشنىڭ كەسكىن چېغىدا،<br>  شېئىرىم يۇلتۇز بولۇپ يانار ئالدىمدا.<br>  ئۆلۈم پەستە قېلىش كۆرەشنىڭ داۋانلىق تېغىدا،<br>  چىدام غەيرەتنىڭ يەڭگىنى ھەريان يادىمدا.</p>
-<p>  ئېسىلارمەن مىلتىق ئېتىپ تاۋلانغان قولغا،<br>  يېپىشارمەن بايراق بىلەن ئالغا ئاتلىغان يولغا.<br>  كۈرەش باياۋانىدا ھارماسمەن ئەسلا،<br>  كۈرەش بىلەن كىلىپ چىقىمىز كەڭ غالىب يولغا.</p>
-<p>  يىللار مەيدەڭنى تۇتۇپ قاقاقلاپ كۈلمە،<br>  ئالدىڭدا قىزىرىشتىن ئارتۇق كۆرىمەن ئۆلۈمنى.<br>  قېرىتىمەن دەپ ئارتۇق كۆڭۈل بۆلمە،<br>  ئاخىرقى جەڭگە ئاتاپ قۇيارمەن ئوغلۇمنى.</p>
-<p>  يىللار دېڭىزى دولقۇنلۇق بولساڭمۇ،<br>  ئۇپقۇنلىرىڭنى يارىدۇ بىزنىڭ كاراپ.<br>  يىلنىڭ ئۆتۈشى بىلەن قورقىتىپ باقساڭمۇ،<br>  ئىجاد يىللارنى قېرىتىدۇ دەپ بېرىمىز جاۋاب.<br>  </p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Language &amp; Literature</category>
-        <category>Uyghur</category>
-      </categories>
-      <tags>
         <tag>Uyghur</tag>
-        <tag>poem</tag>
-        <tag>ﻟﯘﺗﭙﯘﻟﻼ ﻣﯘﺗﻪﻟﻠﯩﭗ</tag>
       </tags>
   </entry>
   <entry>
@@ -1000,19 +862,115 @@ Applications</li>
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2017/03/13/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>. </p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    <title>Stack &amp; Queue Implementation</title>
+    <url>/2018/01/16/Stack-Queue-Implementation/</url>
+    <content><![CDATA[<p>Stack and queue abstract data types implementation with Python.</p>
+<h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><ul>
+<li>LIFO structure</li>
+<li>Graph algorithm: depth-first search can be implemented with Stack</li>
+<li>Finding Euler-cycles in a Graph</li>
+<li>Finding strongly connected components in a graph</li>
+<li>If we use recursion, the OS will use stacks<a id="more"></a></li>
+<li>Most important application of stacks: stack memory<ul>
+<li>it is a special region of the memory (in the RAM)</li>
+<li>it keeps track of the point to which each active subroutine should return control when it finishes executing</li>
+<li>store temporary variables created by each function</li>
+<li>stack memory is limited</li>
+</ul>
+</li>
+</ul>
+<h3 id="Heap-Memory"><a href="#Heap-Memory" class="headerlink" title="Heap Memory"></a>Heap Memory</h3><ul>
+<li>The heap is a region that is not automatically arranged for you</li>
+<li>This is a large region of memory, unlike stack memory</li>
+<li>C: malloc() and calloc() function, with pointers</li>
+<li>Java: reference types and objects are on the Heap</li>
+<li>We have to deallocate these memory chunks as it it not managed automatically. If not, memory leak!</li>
+<li>Slower than stack memory because of pointers</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">stack memory</th>
+<th style="text-align:center">heap memory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">limited in size</td>
+<td style="text-align:center">no size limit</td>
+</tr>
+<tr>
+<td style="text-align:center">fast access</td>
+<td style="text-align:center">slow access</td>
+</tr>
+<tr>
+<td style="text-align:center">local variables</td>
+<td style="text-align:center">objects</td>
+</tr>
+<tr>
+<td style="text-align:center">space is managed efficiently by CPU</td>
+<td style="text-align:center">memory may be fragmented</td>
+</tr>
+<tr>
+<td style="text-align:center">variables cannot be resized</td>
+<td style="text-align:center">variables can be resized // realloc()</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><ul>
+<li>FIFO structure</li>
+<li>It can be implemented with linked lists</li>
+<li>application: BFS</li>
+<li>Operational research applications or stochastic models relies heavily on queues</li>
+</ul>
+<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><h3 id="Stack-1"><a href="#Stack-1" class="headerlink" title="Stack"></a>Stack</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># stack is an abstract data type (interface), LIFO</span></span><br><span class="line"><span class="comment"># there are 3 operations: push(), pop(), peek()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.stack = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.stack == []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self.stack.append(data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        data = self.stack[<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">del</span> self.stack[<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peek</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.stack[<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sizeStack</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.stack)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># test</span></span><br><span class="line">stack = Stack()</span><br><span class="line"></span><br><span class="line">stack.push(<span class="number">1</span>)</span><br><span class="line">stack.push(<span class="number">2</span>)</span><br><span class="line">stack.push(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">print(stack.sizeStack())</span><br><span class="line">print(<span class="string">'popped: '</span>, stack.pop())</span><br><span class="line">print(stack.sizeStack())</span><br><span class="line"></span><br><span class="line">print(<span class="string">'peeked: '</span>, stack.peek())</span><br><span class="line">print(stack.sizeStack())</span><br></pre></td></tr></table></figure>
+<h3 id="Queue-1"><a href="#Queue-1" class="headerlink" title="Queue"></a>Queue</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># queue is an abstract data type (interface) FIFO</span></span><br><span class="line"><span class="comment"># operations: enqueue(), dequeue(), peek()</span></span><br><span class="line"><span class="comment"># e.g: CPU scheduling, IO buffer</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.queue = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.queue == []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">enqueue</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self.queue.append(data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dequeue</span><span class="params">(self)</span>:</span></span><br><span class="line">        data = self.queue[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">del</span> self.queue[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peek</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.queue[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sizeQueue</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.queue)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># test</span></span><br><span class="line">queue = Queue()</span><br><span class="line"></span><br><span class="line">queue.enqueue(<span class="number">1</span>)</span><br><span class="line">queue.enqueue(<span class="number">2</span>)</span><br><span class="line">queue.enqueue(<span class="number">3</span>)</span><br><span class="line">queue.enqueue(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'dequeue: '</span>, queue.dequeue())</span><br><span class="line">print(queue.sizeQueue())</span><br><span class="line"></span><br><span class="line">print(<span class="string">'peek: '</span>, queue.peek())</span><br><span class="line">print(queue.sizeQueue())</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>Computer Science</category>
+        <category>Data Structure</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>data structure</tag>
+        <tag>queue</tag>
+        <tag>stack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>نى يېڭىلاش Github Credentials</title>
+    <url>/2017/04/07/Updating-Credentials-of-Github-in-Uyghur/</url>
+    <content><![CDATA[<p>ئەسسالام ئەلەيكۇم</p>
+<p>تۈنۈگۈن كەچ Github تىكى ھېساۋات نامىمنى ئۆزگەرتكەنىدىم. Github دا ھېسھۋات نامىمنى ئۆزگەرتكەندىنكېن باشتا قۇرغان بەزى ئامبار ۋە گىتخاب بېتىنىڭمۇ url ئادىرسىنىمۇ ئۆزگەرتىش كېرەك ئ‍ىدى. مەن ئۇلانىڭ ھەممىنى ئۆزگەرتىپ ئادىن كومپۇتۇرۇمدىكى hexo بلوگىمنىمۇ تەڭشىدىم. ئاقىدا hexo نى گىتخابقا چىقارماقچى بولغاندا كۈتۈلمىگەن مەسىلىگە يولۇقتۇم. بۇيرۇق كۆزنىكىدە تۆۋەندىكى خاتالىق چىقىۋېلىپ، كومپيۇتىردىكى ئارخىپنى github قا يوللىيالمىدىم. بۇ دېمەك كومپۇتۇرۇم ۋە گىتخابنىڭ ئۇلىنىشىدا مەسەلە كۆرۈلگەنىدى.<br><a id="more"></a><br><strong>كۆرۈلگەن مەسىلە:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">FATAL remote: Permission to NewUsername/NewUername.github.io.git denied to Oldusername.</span><br><span class="line">fatal: unable to access <span class="string">'https://github.com/NewUsername/NewUsername.github.io.git/'</span>: The requested URL returned error: 403</span><br></pre></td></tr></table></figure>
+<p>بۇ مەسەلە ئادەتتە Github تىكى ھېساۋات نامىڭىزنى ئۆزگەتكەندە ۋەياكى بورۇنقىغا ئوخشىمايدىغان گىتخاب ئادىرسىڭىزنى ئىشلەتكەندە كۆرۈلىدۇ. بۇنى ئوڭشاش ئۈچۈن Mac ۋە Windows سېستىمىسىدىكى ئۇسۇللار تۆۋەندىكىچە:</p>
+<h2 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h2><h3 id="1-ئۇسۇل"><a href="#1-ئۇسۇل" class="headerlink" title="1-ئۇسۇل"></a>1-ئۇسۇل</h3><ol>
+<li>Finder دىن Keychain Access ئەپنى ئىزدەڭ</li>
+<li>Keychain Access دىن github.com نى ئىزدەڭ</li>
+<li>ئاندىن شۇكۆزنەكنى ئىشلەتمەكچى بولغان گىتخاب ھېساۋاتىڭىزغا ئاساسەن ئۆزگەرتىش كىرگۈزسىڭىز بولىدۇ.</li>
+</ol>
+<p><img src="http://i.imgur.com/oxjO0eTm.png" alt="First Step"><br><img src="http://i.imgur.com/oXJcRtHm.png" alt="Second Step"></p>
+<h3 id="2-ئۇسۇل"><a href="#2-ئۇسۇل" class="headerlink" title="2-ئۇسۇل"></a>2-ئۇسۇل</h3><p>سىز  terminal ئارقىلىىقمۇ بۇ ئىشەنچە شېفىرىنى ئۈچۈرىۋېتەلەيسىز، ئاندىن سىز گىتخابدا push قىلغاندا ھېساۋات نامىڭىز بىلەن مەخپى-شېفېرىڭىز قايتا سورىلىدۇ.شۇ ۋاقىتتا يېڭىلاتسىڭىزمۇ بولىدۇ. بۇنى قىلىش ئۈچۈن تۆۋەندىكى بۇيرۇقنى كىرگۈزۈڭ.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git credential-osxkeychain erase</span><br><span class="line">host=github.com</span><br><span class="line">protocol=https</span><br><span class="line">[Press Return]</span><br></pre></td></tr></table></figure>
+<p>گىتخابدىكى ئېنگىلىىسچە ئەسلى ماتىريالنى كۆرمەكچى بولسىڭىز <a href="https://help.github.com/articles/updating-credentials-from-the-osx-keychain/" target="_blank" rel="noopener">بۇيەنى چېكىڭ</a>.</p>
+<hr>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>Windows تا بىز Credential Manager نى ئىزدەپ github.com نى ئۆچۈرىۋېتىمىز، ئاندىن گىتخابنى ئىشلەتكەندە ھېساۋات-نام بىلەن شېفىر قايتا سورىلىدۇ، يېڭى گىتخاب ئادىرسىڭىز بويىنچە كىرگۈزسىڭىز بولىدۇ.</p>
+<ol>
+<li>سولتەرەپ تەكتىدىكى ئىزدەش كۆزنىكىدىن  Credential Manager نى ئىزدىپ</li>
+<li>Windows Credential نى تاللاپ</li>
+<li>github.com نى ئۆچۈرىۋەتسىڭىز بولىدۇ.</li>
+</ol>
+<p><img src="http://i.imgur.com/HrSsJIGm.png" alt="Firstt"><br><img src="http://i.imgur.com/64cq2c7m.png" alt="Second"></p>
+]]></content>
+      <categories>
+        <category>Computer Science</category>
+        <category>Others</category>
+      </categories>
+      <tags>
+        <tag>Uyghur</tag>
+        <tag>git</tag>
+        <tag>GitHub</tag>
+      </tags>
   </entry>
   <entry>
     <title>Very Simple Android App - MathSucks</title>
@@ -1029,5 +987,47 @@ Applications</li>
       <tags>
         <tag>android</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>يىللارغا جاۋاپ</title>
+    <url>/2018/04/15/Yillargha-Jawap/</url>
+    <content><![CDATA[<blockquote class="blockquote-center"><p>  <span style="font-family: UKIJ Ekran;">ﻟﯘﺗﭙﯘﻟﻼ ﻣﯘﺗﻪﻟﻠﯩﭗ</span></p>
+<p>  ۋاقىت ئالدىراڭغۇ ساقلاپ تۇرمايدۇ،<br>  يىللار ۋاقىتنىڭ ئەڭ چوڭ يورغىسى.<br>  ئاققان سۇلار، ئاتقان تاڭلار قايتىلانمايدۇ،<br>  يورغا يىللار ئۆمۈرنىڭ يامان ئوغرىسى.<br><a id="more"></a><br>  ئوغرىلاپلا قاچىدۇ ئارقىغا يانماي،<br>  بىر-بىرىنى قوغلىشىپ، يورغىلىشىپ.<br>  ياشلىق بېغىدا بۇلبۇللار قانات قاقماي،<br>  يوپۇرماقلار قۇيۇلىدۇ پورلىشىپ.</p>
+<p>  ياشلىق ئادەمنىڭ زىلۋا بىر چېغى،<br>  تولىمۇ قىسقا ئۇنىڭ ئۆمرى بىراق،<br>  يىرتىلسا كالىندارنىڭ بىر ۋارىقى،<br>  ياشلىق گۈلىدىن تۆكۈلىدۇ بىر تال يۇپۇرماق.</p>
+<p>  يىللار شامىلى يەلپۈنىدۇ، ئىزلار كۆمۈلىدۇ،<br>  يوپۇرماقسىز دەرەخ بىچارە-بولىدۇ قاخشال.<br>  يىللار سېخى قۇرۇق كەلمەيدۇ ئەكىلىپ بېرىدۇ،<br>  قىزلارغا قورۇق، ئەرلەرگە ساقال.</p>
+<p>  بىراق يىللارنى تىللاش توغرا كەلمەيدۇ،<br>  مەيلى ئۆتىۋەرسۇن، ئۆزىنىڭ يولى.<br>  ئادەملەرمۇ ۋاقىتنى قولدىن بەرمەيدۇ،<br>  چۆللەرنى بوستان قىلغان ئادەملەر قولى.</p>
+<p>  يىللارنىڭ قوينى كەڭ، پۇرسىتى نۇرغۇن،<br>  تاغدەك ئىشلار يىللار بىلەن ئۆرە تۇرىدۇ.<br>  قاراب باق ئاخشامقى بوۋاق كىچىككىنە تۇرسۇن،<br>  تۈنۈگۈن ئۆمىلەپ، ھە… بۈگۈن مېڭىپ يۈرىدۇ.</p>
+<p>  كۆرەشچان بالىلار قوغلىشىپ يىللار،<br>  كۆرەش نەۋرىلىرىنى چوقۇم تاپىدۇ.<br>  ئاخشام بەخىت ئۈچۈن قۇربان بولغانلار،<br>  قەبرىسىنى يادلاپ گۈللەر ياپىدۇ.</p>
+<p>  مەيلى ساقال سوۋغا قىلسا قىلسۇن يىللار،<br>  مەنمۇ تاۋلىنىمەن يىللار قوينىدا.<br>  ئىجادىم شېئىرىمنىڭ ئىز تامغىسى بار،<br>  ئالدىمدىن قېچىپ ئۆتكەن ھەر يىل بوينىدا</p>
+<p>  قېرىماسمەن كۆرەشنىڭ كەسكىن چېغىدا،<br>  شېئىرىم يۇلتۇز بولۇپ يانار ئالدىمدا.<br>  ئۆلۈم پەستە قېلىش كۆرەشنىڭ داۋانلىق تېغىدا،<br>  چىدام غەيرەتنىڭ يەڭگىنى ھەريان يادىمدا.</p>
+<p>  ئېسىلارمەن مىلتىق ئېتىپ تاۋلانغان قولغا،<br>  يېپىشارمەن بايراق بىلەن ئالغا ئاتلىغان يولغا.<br>  كۈرەش باياۋانىدا ھارماسمەن ئەسلا،<br>  كۈرەش بىلەن كىلىپ چىقىمىز كەڭ غالىب يولغا.</p>
+<p>  يىللار مەيدەڭنى تۇتۇپ قاقاقلاپ كۈلمە،<br>  ئالدىڭدا قىزىرىشتىن ئارتۇق كۆرىمەن ئۆلۈمنى.<br>  قېرىتىمەن دەپ ئارتۇق كۆڭۈل بۆلمە،<br>  ئاخىرقى جەڭگە ئاتاپ قۇيارمەن ئوغلۇمنى.</p>
+<p>  يىللار دېڭىزى دولقۇنلۇق بولساڭمۇ،<br>  ئۇپقۇنلىرىڭنى يارىدۇ بىزنىڭ كاراپ.<br>  يىلنىڭ ئۆتۈشى بىلەن قورقىتىپ باقساڭمۇ،<br>  ئىجاد يىللارنى قېرىتىدۇ دەپ بېرىمىز جاۋاب.<br>  </p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Language &amp; Literature</category>
+        <category>Uyghur</category>
+      </categories>
+      <tags>
+        <tag>Uyghur</tag>
+        <tag>poem</tag>
+        <tag>ﻟﯘﺗﭙﯘﻟﻼ ﻣﯘﺗﻪﻟﻠﯩﭗ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2017/03/13/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>. </p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
   </entry>
 </search>
